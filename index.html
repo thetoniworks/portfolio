@@ -5,34 +5,801 @@
 <meta name="description" content="Portofolio profesional Muhammad Fatoni: operasi CNC, optimasi proses, dan data operasional.">
 <title>Muhammad Fatoni | Portofolio Profesional</title>
 <style>
-:root{color-scheme:dark;--bg:#101b2d;--surface:#17263b;--surface2:#22334b;--text:#f4f6fb;--muted:#bdc8d8;--line:#33445c;--navy:#e7edf7;--accent:#e2bf5b}
-[data-theme=light]{color-scheme:light;--bg:#fff;--surface:#f7f8fa;--surface2:#eef1f5;--text:#172033;--muted:#5f6878;--line:#e1e5eb;--navy:#172b4d;--accent:#d8b34f}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;transition:background .2s,color .2s}a{color:inherit;text-decoration:none}.container{width:min(1080px,calc(100% - 36px));margin:auto}.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:1.35rem;font-weight:850;letter-spacing:-.06em;color:var(--navy)}.navlinks{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:var(--text)}button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 15px;background:var(--surface);color:var(--text);font-weight:700}.hero{padding:90px 0 75px}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}h1{font-size:clamp(2.7rem,7vw,5rem);line-height:1.04;letter-spacing:-.065em;margin:18px 0}h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;letter-spacing:-.045em;margin:8px 0}h3{margin:8px 0;font-size:1.12rem}.highlight{color:var(--navy)}.hero p{max-width:730px;color:var(--muted);font-size:1.13rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.primary{background:var(--navy);color:var(--bg);border-color:var(--navy)}[data-theme=dark] .primary{color:#101b2d}.meta,.tags{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:25px;color:var(--muted);font-size:.9rem}.tags{margin-top:15px;gap:8px}.tag{padding:4px 9px;background:var(--surface2);border-radius:7px;font-size:.8rem;color:var(--text)}section{padding:62px 0;border-top:1px solid var(--line)}.head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:25px}.head p{max-width:450px;color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:23px}.num{font-size:.78rem;font-weight:800;letter-spacing:.1em;color:var(--muted)}.card p,.card li{color:var(--muted)}.card ul{padding-left:20px}.note{border-left:3px solid var(--accent);border-radius:0 9px 9px 0;background:var(--surface);padding:13px 16px;color:var(--muted)}.experience{display:grid;grid-template-columns:190px 1fr;gap:22px}.date{font-size:.9rem;color:var(--muted);font-weight:700}.contact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,5vw,42px);display:flex;align-items:center;justify-content:space-between;gap:24px}.contact p{color:var(--muted);max-width:580px}footer{padding:27px 0;color:var(--muted);font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}@media(max-width:700px){.navlinks{gap:9px}.navlinks a{display:none}.hero{padding:65px 0 50px}section{padding:46px 0}.head,.contact{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.experience{grid-template-columns:1fr;gap:4px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+:root{color-scheme:light;--bg:#f7f5ef;--surface:#fff;--surface2:#f0eee7;--text:#172033;--muted:#5f6878;--line:#dedbd2;--navy:#172b4d;--accent:#e8791b}
+[data-theme=dark]{color-scheme:dark;--bg:#101b2d;--surface:#17263b;--surface2:#22334b;--text:#f4f6fb;--muted:#bdc8d8;--line:#33445c;--navy:#e7edf7;--accent:#e2bf5b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;transition:background .2s,color .2s}a{color:inherit;text-decoration:none}.container{width:min(1080px,calc(100% - 36px));margin:auto}.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:1.05rem;font-weight:800;letter-spacing:-.025em;color:var(--navy);opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .2s ease,transform .2s ease,visibility .2s}.brand.is-visible{opacity:1;visibility:visible;transform:translateY(0)}.navlinks{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.9rem}.navlinks a{position:relative;display:inline-flex;align-items:center;padding:9px 11px;border-radius:9px;white-space:nowrap;transition:color .28s ease,background-color .32s ease,box-shadow .32s ease,transform .32s ease}.navlinks a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:var(--accent);transform:scaleX(0);transform-origin:center;opacity:0;transition:transform .32s cubic-bezier(.2,.7,.2,1),opacity .24s ease}.navlinks a:hover{color:var(--text);background:var(--surface2)}.navlinks a.is-active{color:var(--text);background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line);font-weight:750}.navlinks a.is-active::after{transform:scaleX(1);opacity:1}.navlinks a[aria-current="location"]{color:var(--text)}button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 15px;background:var(--surface);color:var(--text);font-weight:700}.hero{padding:74px 0 75px}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}h1{font-size:clamp(2.7rem,7vw,5rem);line-height:1.04;letter-spacing:-.065em;margin:18px 0}h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;letter-spacing:-.045em;margin:8px 0}h3{margin:8px 0;font-size:1.12rem}.highlight{color:var(--navy)}.hero p{max-width:730px;color:var(--muted);font-size:1.13rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.primary{background:var(--navy);color:var(--bg);border-color:var(--navy)}[data-theme=dark] .primary{color:#101b2d}.meta,.tags{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:25px;color:var(--muted);font-size:.9rem}.tags{margin-top:15px;gap:8px}.tag{padding:4px 9px;background:var(--surface2);border-radius:7px;font-size:.8rem;color:var(--text)}section{padding:62px 0;border-top:1px solid var(--line)}.head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:25px}.head p{max-width:450px;color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:23px}.num{font-size:.78rem;font-weight:800;letter-spacing:.1em;color:var(--muted)}.card p,.card li{color:var(--muted)}.card ul{padding-left:20px}.note{border-left:3px solid var(--accent);border-radius:0 9px 9px 0;background:var(--surface);padding:13px 16px;color:var(--muted)}.experience{display:grid;grid-template-columns:190px 1fr;gap:22px}.date{font-size:.9rem;color:var(--muted);font-weight:700}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.step{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:22px;min-height:190px}.step strong{display:block;color:var(--accent);font-size:.8rem;letter-spacing:.08em}.step p{color:var(--muted);margin-bottom:0}.flow{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:10px;margin:26px 0;max-width:100%;overflow-x:auto;padding:4px 2px 10px}.flow span{padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);font-weight:800;font-size:.9rem;white-space:nowrap;flex:0 0 auto}.flow b{color:var(--accent);flex:0 0 auto}.back-top{position:fixed;right:20px;bottom:20px;z-index:10;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;border-radius:50%;width:46px;height:46px;padding:0;font-size:1.2rem;box-shadow:0 6px 20px #0002}.back-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}.contact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,5vw,42px);display:flex;align-items:center;justify-content:space-between;gap:24px}.contact p{color:var(--muted);max-width:580px}footer{padding:27px 0;color:var(--muted);font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}@media(max-width:850px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.topbar nav{gap:10px}.navlinks{gap:7px;min-width:0;position:relative;justify-content:flex-end}.navlinks a{display:inline-flex;position:absolute;right:calc(100% - 2px);top:50%;transform:translateY(calc(-50% + 5px));max-width:0;padding:7px 0;overflow:hidden;opacity:0;pointer-events:none;white-space:nowrap;font-size:.82rem;box-shadow:none!important}.navlinks a.is-active{position:relative;right:auto;top:auto;transform:translateY(0);max-width:135px;padding:7px 10px;opacity:1;pointer-events:auto;overflow:hidden;text-overflow:ellipsis}.navlinks a::after{left:10px;right:10px;bottom:3px}.navlinks #themeToggle{padding:9px 11px;white-space:nowrap;flex:0 0 auto}.hero{padding:50px 0 50px}section{padding:46px 0}.head,.contact{align-items:flex-start;flex-direction:column}.grid,.steps{grid-template-columns:1fr}.experience{grid-template-columns:1fr;gap:4px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Visual enhancement B: orange/cream technical pattern, using supplied transparent assets */
+:root{--orange:#ef7d19;--orange-soft:#f7b36b;--cream:#f7f3eb;--pattern-opacity:.075}
+[data-theme=light]{--pattern-opacity:.15}
+[data-theme=dark]{--pattern-opacity:.10}
+body{background-image:radial-gradient(circle at 12% 9%,color-mix(in srgb,var(--accent) 8%,transparent) 0 2px,transparent 3px),linear-gradient(135deg,transparent 0 48%,color-mix(in srgb,var(--accent) 3%,transparent) 48% 49%,transparent 49% 100%);background-size:42px 42px,100% 100%}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(110deg,var(--bg) 0%,var(--bg) 56%,color-mix(in srgb,var(--surface) 82%,transparent) 100%)}
+.hero:after{content:"";position:absolute;z-index:-1;right:-55px;top:12px;width:min(43vw,440px);aspect-ratio:1;background:url('assets/Picture5_1.png') center/contain no-repeat;opacity:var(--pattern-opacity);filter:grayscale(1);pointer-events:none}
+section{position:relative;isolation:isolate;overflow:hidden}
+section:nth-of-type(4n+1):after,section:nth-of-type(4n+1):before,section:nth-of-type(4n+2):after,section:nth-of-type(4n+3):after,section:nth-of-type(4n):after{content:"";position:absolute;z-index:-1;background-position:center;background-repeat:no-repeat;background-size:contain;opacity:var(--pattern-opacity);pointer-events:none}
+section:nth-of-type(4n+1):after{right:-30px;top:12px;width:230px;height:230px;background-image:url('assets/Picture3_1.png')}
+section:nth-of-type(4n+2):after{left:-25px;bottom:8px;width:210px;height:210px;background-image:url('assets/Picture1_3.png')}
+section:nth-of-type(4n+3):after{right:3%;bottom:0;width:230px;height:180px;background-image:url('assets/Picture4.png')}
+section:nth-of-type(4n):after{left:4%;top:12px;width:190px;height:190px;background-image:url('assets/Picture2_2.png')}
+section:nth-of-type(4n+1):before{left:3%;bottom:4px;width:170px;height:170px;background-image:url('assets/Picture8_1.png')}
+.card,.step,.contact{box-shadow:0 10px 28px #0000000a;backdrop-filter:blur(2px)}
+.card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 65%,var(--line));box-shadow:0 14px 30px #00000012}
+.visual-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 24px}
+.visual-tile{display:flex;align-items:center;gap:18px;min-width:0;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.visual-tile img{width:clamp(100px,18%,180px);max-height:145px;object-fit:contain;flex:0 0 auto;filter:drop-shadow(0 8px 12px #00000018)}
+.visual-tile h3{margin:0 0 6px}.visual-tile p{margin:0;color:var(--muted);font-size:.93rem}
+.skill-icon{width:48px;height:48px;object-fit:contain;float:right;margin:-5px 0 10px 12px;opacity:.95}
+.section-pattern{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+.machine-figure{margin:0;padding:24px 26px 22px;background:var(--surface);border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;gap:26px;min-width:0;min-height:230px}
+.machine-figure img{width:48%;max-height:245px;min-height:170px;object-fit:contain;flex:0 0 48%;filter:drop-shadow(0 8px 12px #00000018)}
+.machine-figure figcaption{color:var(--muted);font-size:1rem;line-height:1.7;min-width:0}.machine-figure strong{display:block;color:var(--text);font-size:1.15rem;margin-bottom:10px}
+.qr-card{display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--surface2);border:1px solid var(--line);border-radius:12px;margin-top:18px}.qr-card img{width:92px;height:92px;object-fit:contain;background:#fff;border-radius:5px}
+@media(max-width:700px){.visual-pair,.section-pattern{grid-template-columns:1fr}.visual-tile{align-items:flex-start}.visual-tile img{width:90px;max-height:100px}.machine-figure{gap:14px;padding:18px 16px;min-height:175px}.machine-figure img{width:42%;min-height:110px;max-height:165px;flex-basis:42%}.machine-figure figcaption{font-size:.9rem}.machine-figure strong{font-size:1rem;margin-bottom:6px}.flow{justify-content:flex-start;gap:7px;margin:20px 0}.flow span{padding:10px 12px;font-size:.78rem}.flow b{font-size:.9rem}.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.step{padding:16px;min-height:170px}.hero:after{width:65vw;right:-22vw;top:15px}.qr-card{align-items:flex-start}}
+@media(max-width:390px){.machine-figure{align-items:flex-start}.machine-figure img{width:38%;min-height:90px;max-height:135px;flex-basis:38%}.flow{flex-wrap:wrap;overflow:visible}.flow b{display:none}.flow span{flex:1 1 40%;text-align:center}.steps{grid-template-columns:1fr}.step{min-height:0}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+
+
+.excel-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.excel-shot{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
+.excel-shot a{display:block;background:#fff;line-height:0}
+.excel-shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fff;transition:transform .2s ease}
+.excel-shot a:hover img{transform:scale(1.015)}
+.excel-shot figcaption{padding:16px 18px}
+.excel-shot figcaption strong{display:block;color:var(--text);margin-bottom:4px}
+.excel-shot figcaption span{display:block;color:var(--muted);font-size:.9rem;line-height:1.55}
+@media(max-width:700px){.excel-gallery{grid-template-columns:1fr}.excel-shot figcaption{padding:13px 15px}}
+
+/* Revisi 3: responsive flow, larger QR, cleaner hierarchy */
+.flow-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;padding:22px 18px;min-width:0}
+.flow-strip .flow-chip{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:14px 22px;border-radius:14px;white-space:normal;text-align:center;max-width:100%;font-weight:800}
+.flow-strip .flow-arrow{color:var(--accent);font-size:1.35rem;line-height:1}
+.qr-card img,.qr-card .qr-image{width:clamp(140px,18vw,220px);height:auto;max-width:100%;object-fit:contain}
+.qr-card{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+@media(max-width:760px){.flow-strip{gap:8px;padding:16px 10px}.flow-strip .flow-chip{flex:1 1 125px;padding:12px 14px;min-height:52px}.flow-strip .flow-arrow{display:none}.qr-card{gap:16px}.qr-card img,.qr-card .qr-image{width:150px}}
+
+
+/* Revisi 4: perbaikan langsung sesuai anotasi cyan */
+.trouble-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:stretch;margin:24px 0}
+.tf-node{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface2);min-width:0}
+.tf-node b{color:var(--accent);letter-spacing:.08em}.tf-node strong{font-size:1.08rem}.tf-node span{color:var(--muted);line-height:1.5}.trouble-flow>i{align-self:center;color:var(--accent);font-size:1.5rem;font-style:normal}
+.tf-escalate{border-color:var(--accent)}
+.dxf-visual{display:flex;align-items:center;gap:14px;margin:14px 0 18px;min-height:100px}.dxf-visual img{width:min(34%,150px);height:100px;object-fit:contain}
+.data-grid{grid-template-columns:minmax(0,1fr)}.data-grid>.card{width:100%}
+.flow-strip{width:100%;box-sizing:border-box;background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-top:22px}
+.qr-card img{width:clamp(150px,16vw,220px);height:auto;flex:0 0 auto}
+@media(max-width:760px){.trouble-flow{grid-template-columns:minmax(0,1fr);gap:8px}.trouble-flow>i{transform:rotate(90deg);justify-self:center}.tf-node{padding:16px}.dxf-visual img{width:42%;height:90px}.qr-card{align-items:center}.qr-card img{width:145px}}
+
+
+/* Revisi 5: ikon dan diagram troubleshooting responsif */
+.trouble-cards .step{position:relative;padding-top:68px}.trouble-icon{position:absolute;right:16px;top:14px;width:42px;height:42px;object-fit:contain;opacity:.9}
+.trouble-diagram{margin:24px 0 8px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px #0000000a}
+.diagram-main{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:center;gap:8px}
+.diagram-main span,.diagram-bottom>span{display:flex;align-items:center;justify-content:center;min-height:58px;padding:12px;text-align:center;font-weight:800;border:1px solid var(--line);border-radius:12px;background:var(--surface2)}.diagram-main b{color:var(--orange);font-size:1.45rem;text-align:center}
+.diagram-bottom{display:grid;grid-template-columns:1fr 1.15fr 1fr 1fr;gap:12px;align-items:center;margin-top:20px}.diagram-bottom .escalate{background:#fff0e2;border-color:#e8791b;color:#91440c}.diagram-bottom .decision{background:#fffbd0;border-color:#d8b34f;color:#38351b;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);border-radius:0;min-height:74px}.diagram-bottom .done{background:#e5f5eb;border-color:#2e9462;color:#236c48}.diagram-caption{display:flex;justify-content:space-between;gap:16px;margin-top:14px;color:var(--muted);font-size:.9rem}.diagram-caption span:first-child{color:#a34d0b}.diagram-caption span:last-child{color:#278454}
+@media(max-width:760px){.diagram-main{grid-template-columns:1fr;gap:7px}.diagram-main b{transform:rotate(90deg);font-size:1.2rem}.diagram-main span{min-height:48px}.diagram-bottom{grid-template-columns:1fr 1fr;gap:9px}.diagram-bottom .decision{clip-path:none;border-radius:12px;min-height:54px}.diagram-caption{flex-direction:column;gap:4px}.trouble-diagram{padding:14px}.trouble-cards .step{padding-top:62px}}
+
+
+
+/* Hero: intro sedikit lebih tinggi, dengan garis aksen bergerak halus */
+.hero p strong{
+  position:relative;
+  display:block;
+  width:max-content;
+  max-width:100%;
+  white-space:nowrap;
+  font-size:clamp(.68rem, 1.7vw, 1.13rem);
+  padding-bottom:17px;
+  margin-bottom:.9em;
+}
+.hero p strong::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:clamp(105px, 15vw, 155px);
+  height:3px;
+  border-radius:99px;
+  background:var(--accent);
+  box-shadow:0 2px 5px color-mix(in srgb,var(--accent) 25%,transparent);
+  transform:translateX(-18px);
+  opacity:0;
+  animation:hero-accent-slide .85s cubic-bezier(.2,.7,.2,1) .2s forwards;
+}
+@keyframes hero-accent-slide{to{transform:translateX(0);opacity:1}}
+
+/* Revisi: titik pemisah pada headline dibuat lebih jelas */
+.hero-separator{
+  display:inline-block;
+  font-size:1.55em;
+  font-weight:900;
+  line-height:0;
+  color:var(--accent);
+  margin:0 .13em;
+  vertical-align:-.035em;
+  text-shadow:0 0 1px color-mix(in srgb,var(--accent) 35%,transparent);
+}
+@media(max-width:700px){
+  .hero-separator{font-size:1.35em;margin:0 .075em}
+  .hero p strong{font-size:clamp(.62rem, 3.15vw, .94rem);padding-bottom:14px;margin-bottom:1em;letter-spacing:-.025em}
+  .hero p strong::after{width:100px;height:2.5px}
+}
+@media(max-width:360px){
+  .hero p strong{font-size:clamp(.58rem, 2.9vw, .68rem);letter-spacing:-.035em}
+  .hero-separator{margin:0 .045em}
+}
+@media(prefers-reduced-motion:reduce){.hero p strong::after{animation:none;transform:none;opacity:1}}
+
+
+/* Revisi final: posisi hero lebih tinggi dan aksen bergerak lebih terlihat */
+.hero{padding-top:38px;padding-bottom:75px}
+.hero h1{margin-top:14px;margin-bottom:16px}
+.hero p strong{
+  padding-bottom:22px;
+  margin-bottom:1.05em;
+}
+.hero p strong::after{
+  left:0;
+  bottom:0;
+  width:clamp(120px,17vw,175px);
+  height:4px;
+  transform:translateX(-95px);
+  opacity:0;
+  animation:hero-accent-float 1.25s cubic-bezier(.22,.75,.25,1) .15s both;
+}
+@keyframes hero-accent-float{
+  0%{transform:translateX(-95px);opacity:0}
+  18%{opacity:1}
+  72%{transform:translateX(22px);opacity:1}
+  100%{transform:translateX(0);opacity:1}
+}
+@media(max-width:700px){
+  .hero{padding-top:27px;padding-bottom:50px}
+  .hero h1{margin-top:12px;margin-bottom:14px}
+  .hero p strong{padding-bottom:18px;margin-bottom:1.05em}
+  .hero p strong::after{width:112px;height:3px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero p strong::after{animation:none;transform:none;opacity:1}
+}
+
+
+/* Revisi tipografi: deskripsi hero kembali lebih ringkas */
+.hero p{font-size:1.02rem;line-height:1.65}
+@media(max-width:700px){.hero p{font-size:.98rem;line-height:1.65}}
+
+
+/* Revisi mobile: cegah kompetensi hero menyentuh tepi layar dan jaga label meta tidak terbelah. */
+@media(max-width:700px){
+  .hero .container{width:calc(100% - 32px)}
+  .hero p strong{
+    display:block;
+    width:100%;
+    max-width:100%;
+    white-space:nowrap;
+    font-size:clamp(.48rem,2.25vw,.70rem);
+    letter-spacing:-.04em;
+    padding-bottom:14px;
+    margin-bottom:1em;
+  }
+  .hero p strong .hero-separator{font-size:1.2em;margin:0 .035em}
+  .meta{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:8px 12px;font-size:clamp(.68rem,2.8vw,.82rem)}
+  .meta span{white-space:nowrap;min-width:0}
+}
+@media(max-width:360px){
+  .hero .container{width:calc(100% - 26px)}
+  .hero p strong{font-size:clamp(.43rem,2.1vw,.58rem);letter-spacing:-.045em}
+  .meta{grid-template-columns:minmax(0,1fr);gap:6px}
+  .meta span{white-space:normal}
+}
+
+/* Revisi sesuai arahan: hapus baris metadata dan turunkan deskripsi */
+.hero .meta{display:none!important}
+.hero p strong{margin-bottom:1.8em}
+@media(max-width:700px){.hero p strong{margin-bottom:1.8em}}
+
+
+/* Revisi lanjutan: turunkan deskripsi agar jaraknya lebih lega dari garis aksen */
+.hero p strong{margin-bottom:2.05em}
+@media(max-width:700px){.hero p strong{margin-bottom:1.9em}}
+
+
+/* FINAL FIX: pindahkan deskripsi hero ke area bawah yang ditandai pengguna. */
+.hero p .hero-description{display:block!important;margin-top:158px!important;max-width:730px;position:relative;}
+@media(max-width:700px){.hero p .hero-description{margin-top:112px!important;}}
+
+/* Uji coba: margin konten lebih ke tengah + sidebar sosial fixed khusus desktop */
+@media(min-width:1100px){
+  main .container, footer .container{
+    width:min(1080px,calc(100% - 72px));
+    margin-left:max(52px,calc((100vw - 1080px)/2 + 24px));
+    margin-right:auto;
+  }
+  .desktop-social-rail{
+    position:fixed; z-index:20; right:22px; top:50%;
+    transform:translateY(-50%); width:166px;
+    display:flex; flex-direction:column; align-items:center; gap:12px;
+    padding:16px 12px 14px; border:1px solid var(--line);
+    border-radius:18px; background:color-mix(in srgb,var(--surface) 94%,transparent);
+    box-shadow:0 12px 34px #00000018; backdrop-filter:blur(10px);
+  }
+  .desktop-social-rail .rail-label{font-size:.72rem;letter-spacing:.12em;font-weight:850;color:var(--muted);text-transform:uppercase}
+  .desktop-social-rail .rail-qr{display:block;width:118px;height:118px;object-fit:contain;background:#fff;padding:5px;border-radius:8px;border:1px solid var(--line)}
+  .desktop-social-rail .rail-caption{font-size:.72rem;line-height:1.35;text-align:center;color:var(--muted);margin-top:-5px}
+  .desktop-social-rail .social-link{width:100%;display:flex;align-items:center;gap:9px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);font-size:.82rem;font-weight:750;transition:transform .18s,border-color .18s}
+  .desktop-social-rail .social-link:hover{transform:translateX(-3px);border-color:var(--accent)}
+  .desktop-social-rail .social-link svg{width:20px;height:20px;flex:0 0 auto}
+}
+.desktop-social-rail{display:none}
+@media(min-width:1100px){.desktop-social-rail{display:flex}}
+@media(max-width:1099px){.desktop-social-rail{display:none!important}}
+
+
+/* Revisi 2: grid desktop dengan rail kanan penuh tinggi dan konten ikut menyempit */
+@media(min-width:1100px){
+  body{padding-right:0}
+  .topbar nav{
+    width:calc(100% - 340px);
+    max-width:none;
+    margin-left:52px;
+    margin-right:288px;
+  }
+  .topbar .brand{margin-left:0}
+  main{
+    width:calc(100% - 340px);
+    margin-left:52px;
+    margin-right:288px;
+  }
+  footer .container{
+    width:calc(100% - 340px);
+    margin-left:52px;
+    margin-right:288px;
+  }
+  .desktop-social-rail{
+    position:fixed;
+    top:0; right:0; bottom:0;
+    transform:none;
+    width:260px;
+    height:100dvh;
+    overflow-y:auto;
+    border-radius:0;
+    border-top:0;
+    border-right:0;
+    border-bottom:0;
+    padding:28px 20px;
+    gap:14px;
+    justify-content:flex-start;
+    box-shadow:-8px 0 26px #00000012;
+  }
+  .desktop-social-rail .rail-qr{width:min(100%,170px);height:auto;aspect-ratio:1}
+  .desktop-social-rail .rail-label{margin-top:14px}
+  .desktop-social-rail .social-link{max-width:210px}
+}
+@media(min-width:1500px){
+  .topbar nav, main, footer .container{
+    width:calc(100% - 390px);
+    margin-left:64px;
+    margin-right:326px;
+  }
+  .desktop-social-rail{width:290px;padding:34px 26px}
+  .desktop-social-rail .rail-qr{width:min(100%,190px)}
+}
+@media(max-width:1099px){
+  .topbar nav, main, footer .container{width:auto;margin-left:auto;margin-right:auto}
+}
+
+
+/* Revisi sidebar: dimulai tepat di bawah header, header tetap utuh */
+@media(min-width:1100px){
+  .desktop-social-rail{
+    top:var(--header-height, 104px);
+    height:calc(100vh - var(--header-height, 104px));
+    height:calc(100dvh - var(--header-height, 104px));
+    bottom:auto;
+  }
+}
+
+
+/* Revisi v5: header tidak ikut terdorong sidebar; rail menempel tepat di bawah header */
+@media (min-width: 1100px) {
+  .topbar,
+  .topbar nav,
+  .topbar .brand,
+  .topbar .navlinks {
+    margin-right: initial;
+  }
+
+  .topbar nav.container {
+    width: min(1080px, calc(100% - 36px));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main {
+    width: calc(100% - 340px);
+    max-width: none;
+    margin-left: 52px;
+    margin-right: 288px;
+  }
+
+  footer .container {
+    width: calc(100% - 340px);
+    max-width: none;
+    margin-left: 52px;
+    margin-right: 288px;
+  }
+
+  .desktop-social-rail {
+    position: fixed;
+    top: var(--header-height, 104px);
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    height: auto;
+    transform: none;
+    border-radius: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: 24px 20px;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 1500px) {
+  .topbar nav.container {
+    width: min(1080px, calc(100% - 36px));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main,
+  footer .container {
+    width: calc(100% - 390px);
+    margin-left: 76px;
+    margin-right: 326px;
+  }
+
+  .desktop-social-rail {
+    width: 290px;
+    padding: 30px 26px;
+  }
+}
+
+@media (max-width: 1099px) {
+  main,
+  footer .container {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* Revisi v8: brand header sejajar dengan batas kiri konten utama */
+@media (min-width: 1100px) {
+  .topbar .brand {
+    margin-left: 52px !important;
+  }
+}
+@media (min-width: 1500px) {
+  .topbar .brand {
+    margin-left: 64px !important;
+  }
+}
+
+
+
+/* Revisi v9: geser visual brand saja agar tepi kirinya sejajar dengan konten */
+@media (min-width: 1100px) {
+  .topbar nav.container .brand {
+    position: relative;
+    left: 94px;
+    margin-left: 0 !important;
+  }
+}
+@media (min-width: 1500px) {
+  .topbar nav.container .brand {
+    left: 76px;
+  }
+}
+
+
+/* Revisi v12: tombol kembali ke atas terlihat di area konten, tidak tertutup sidebar */
+@media (min-width: 1100px) {
+  .back-top {
+    right: calc(var(--rail-width, 260px) + 20px);
+    z-index: 40;
+  }
+}
+@media (min-width: 1500px) {
+  .back-top {
+    right: calc(var(--rail-width, 290px) + 20px);
+  }
+}
+
+
+/* Revisi v13: tombol auto-scroll juga aktif dan terlihat pada mode smartphone */
+@media (max-width: 1099px) {
+  .back-top {
+    display: inline-flex !important;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .back-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+@media (max-width: 480px) {
+  .back-top {
+    right: 12px;
+    bottom: 12px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+
+/* v14: paksa tombol kembali ke atas tersedia pada layar mobile */
+@media screen and (max-width: 1099px) {
+  #backTop.back-top {
+    display: flex !important;
+    position: fixed !important;
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    width: 46px !important;
+    height: 46px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(8px);
+  }
+  #backTop.back-top.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0);
+  }
+}
+
+
+/* Revisi responsif: margin header HP dan pemisahan judul/tagline section */
+@media (max-width: 700px) {
+  .topbar nav {
+    width: calc(100% - clamp(28px, 8vw, 40px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+  }
+  .topbar .brand { min-width: 0; }
+  .topbar .theme-toggle, .topbar button { flex-shrink: 0; }
+}
+@media (min-width: 701px) and (max-width: 1099px) {
+  .topbar nav {
+    width: calc(100% - clamp(40px, 8vw, 88px));
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 1100px) {
+  .topbar nav {
+    width: calc(100% - 340px);
+    margin-left: 52px;
+    margin-right: 288px;
+    box-sizing: border-box;
+  }
+}
+/* Judul section tetap besar; tagline ditempatkan pada baris berikutnya */
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.head > div { max-width: 100%; }
+.head h2 { margin-bottom: 0; }
+.head p {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  line-height: 1.55;
+}
+
+
+/* v16: pulihkan tombol auto-scroll HP dengan selector aktif berprioritas lebih tinggi */
+@media screen and (max-width: 1099px) {
+  html body #backTop.back-top {
+    display: flex !important;
+    position: fixed !important;
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    width: 46px !important;
+    height: 46px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: var(--accent, #f97316) !important;
+    color: #fff !important;
+    border: 1px solid rgba(0,0,0,.12) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,.22) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(8px);
+  }
+  html body #backTop.back-top.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+}
+
+
+/* Revisi lanjutan: turunkan deskripsi ke area yang ditandai pengguna */
+.hero p strong{margin-bottom:4.35em}
+@media(max-width:700px){.hero p strong{margin-bottom:3.8em}}
+
+/* Posisi deskripsi hero: elemen terpisah agar jarak vertikal benar-benar diterapkan */
+.hero p strong{margin-bottom:0;padding-bottom:18px}
+.hero p .hero-description{display:block;margin-top:76px;max-width:730px}
+@media(max-width:700px){.hero p .hero-description{margin-top:58px}}
+
+/* v17: aturan tombol HP berada DI DALAM stylesheet dan status aktif menang cascade */
+@media (max-width: 1099px) {
+  #backTop.back-top {
+    display: flex !important;
+    position: fixed !important;
+    inset: auto max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) auto !important;
+    z-index: 2147483647 !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    background: var(--accent, #e8791b) !important;
+    color: #fff !important;
+    border: 1px solid rgba(0,0,0,.15) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25) !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    transform: translateY(0) !important;
+  }
+  html body #backTop.back-top.is-visible,
+  html body #backTop.back-top.force-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+}
+
+
+/* v19: tombol selalu tampak di HP; tidak bergantung pada event scroll/class JS */
+@media screen and (max-width: 1099px) {
+  html body button#backTop.back-top {
+    display: flex !important;
+    position: fixed !important;
+    right: max(14px, env(safe-area-inset-right, 0px)) !important;
+    bottom: max(14px, env(safe-area-inset-bottom, 0px)) !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 2147483647 !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    background: var(--accent, #e8791b) !important;
+    color: #fff !important;
+    border: 1px solid rgba(0,0,0,.15) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25) !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+  }
+}
+
+
+/* v21: posisi tombol auto-scroll dinaikkan pada layar HP agar tidak terlalu dekat tepi bawah */
+@media screen and (max-width: 700px) {
+  html body #backTop.back-top {
+    position: fixed !important;
+    right: max(14px, env(safe-area-inset-right, 0px)) !important;
+    bottom: max(280px, calc(env(safe-area-inset-bottom, 0px) + 270px)) !important;
+    z-index: 2147483647 !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  html body #backTop.back-top.is-visible,
+  html body #backTop.back-top.force-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+}
+
 </style></head>
 <body>
-<header class="topbar"><nav class="container" aria-label="Navigasi utama"><a class="brand" href="#home">Muhammad Fatoni</a><div class="navlinks"><a href="#tentang">Tentang</a><a href="#kompetensi">Kompetensi</a><a href="#proyek">Proyek</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a><button id="themeToggle" type="button">☾ Dark</button></div></nav></header>
+<header class="topbar"><nav class="container" aria-label="Navigasi utama"><a class="brand" id="headerBrand" href="#home" aria-label="Kembali ke bagian awal">Muhammad Fatoni</a><div class="navlinks"><a href="#tentang">Tentang</a><a href="#kompetensi">Kompetensi</a><a href="#alur">Alur</a><a href="#proyek">Proyek</a><a href="#data">Data</a><a href="#kolaborasi">Kolaborasi</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a><button id="themeToggle" type="button">☾ Dark</button></div></nav></header>
+
 <main>
-<section class="hero" id="home" style="border-top:0"><div class="container"><div class="eyebrow">Portofolio Profesional · Kudus, Indonesia</div><h1>Muhammad Fatoni<span class="highlight"></span></h1><p><strong>CNC Operations, Process Optimization &amp; Operational Data.</strong><br>Menggabungkan pengalaman operasional mesin, pemecahan masalah, optimasi proses, dan pengolahan data untuk mendukung kelancaran produksi.</p><div class="actions"><a class="btn primary" href="#proyek">Lihat Proyek ↘</a><a class="btn" href="#kontak">Hubungi Saya</a></div><div class="meta"><span>▣ Operasi &amp; perawatan CNC</span><span>▦ Optimasi file DXF</span><span>▤ Excel &amp; dashboard operasional</span></div></div></section>
-<section id="tentang"><div class="container"><div class="head"><div><div class="eyebrow">01 / Profil</div><h2>Tentang Saya</h2></div><p>Pengalaman produksi yang didukung pola pikir analitis dan pencatatan data yang terstruktur.</p></div><div class="card"><p>Saya merupakan lulusan SMK Teknik Kendaraan Ringan dengan pengalaman lebih dari tiga tahun di lingkungan manufaktur. Dalam peran sebagai staf R&amp;D Divisi Pisau, saya mengoperasikan dan merawat dua mesin CNC serta mengelola data kerja berbasis Excel untuk mendukung monitoring, evaluasi, dan kebutuhan operasional.</p><p>Saya terbiasa mengidentifikasi gangguan, melakukan penanganan sesuai kemampuan dan kewenangan, serta berkoordinasi dengan divisi terkait ketika diperlukan.</p><div class="tags"><span class="tag">Operasi CNC</span><span class="tag">Troubleshooting</span><span class="tag">Optimasi Proses</span><span class="tag">Data Operasional</span></div></div></div></section>
+<section class="hero" id="home" style="border-top:0"><div class="container"><div class="eyebrow">Portofolio Profesional</div><h1>Muhammad Fatoni</h1><p><strong>Operasi CNC <span class="hero-separator">·</span> Problem Solving <span class="hero-separator">·</span> Optimasi Proses <span class="hero-separator">·</span> Data Operasional</strong><span class="hero-description">Menggabungkan pengalaman operasional mesin, pemecahan masalah, optimasi proses, dan pengolahan data untuk mendukung kegiatan produksi.</span></p><div class="meta"><span>▣ Operasi &amp; perawatan CNC</span><span>▦ Optimasi file DXF</span><span>▤ Excel &amp; dashboard operasional</span></div></div></section>
+<section id="tentang"><div class="container"><div class="head"><div><div class="eyebrow">01 / Profil</div><h2>Tentang Saya</h2></div><p>Pengalaman produksi, pemecahan masalah, dan pengolahan data operasional.</p></div><div class="card"><p>Saya lulusan SMK (TKR) dengan pengalaman lebih dari 3 tahun di lingkungan manufaktur kemasan karton. Dalam peran sebagai Staf R&D Divisi Pisau, saya mengoperasikan dan merawat 2 mesin CNC, serta mengembangkan sistem record kerja berbasis Excel</p><p>Saya juga terbiasa menangani gangguan awal dan berkoordinasi lintas divisi untuk mendukung kelancaran operasional.</p><div class="tags"><span class="tag">Operasi CNC</span><span class="tag">Troubleshooting</span><span class="tag">Optimasi Proses</span><span class="tag">Data Operasional</span></div></div></div></section>
 <section id="kompetensi"><div class="container"><div class="head"><div><div class="eyebrow">02 / Kompetensi</div><h2>Fokus Keahlian</h2></div><p>Kompetensi yang digunakan untuk mendukung proses produksi dan pemantauan operasional.</p></div><div class="grid">
-<article class="card"><div class="num">01 / PRODUKSI</div><h3>Operasi &amp; Perawatan CNC</h3><p>Pengoperasian Dieboard Laser Cutting dan Autoblade Bending, pemeriksaan pra-operasional, perawatan, serta pemantauan hasil proses.</p></article>
-<article class="card"><div class="num">02 / PROBLEM SOLVING</div><h3>Troubleshooting &amp; Eskalasi</h3><p>Mengamati gangguan, melakukan pemeriksaan awal, menguji hasil, dan melibatkan teknisi terkait jika dibutuhkan.</p></article>
-<article class="card"><div class="num">03 / OPTIMASI</div><h3>Optimasi Proses &amp; DXF</h3><p>Penyesuaian file DXF, layout pemanfaatan material, serta pengamatan parameter proses untuk mendukung kualitas dan kelancaran produksi.</p></article>
-<article class="card"><div class="num">04 / DATA</div><h3>Excel &amp; Monitoring</h3><p>Pengolahan data operasional menggunakan tabel, formula, PivotTable, PivotChart, slicer, timeline, dan dashboard.</p></article>
+<article class="card"><img class="skill-icon" src="assets/Picture1_3.png" alt=""><div class="num">01 / PRODUKSI</div><h3>Operasi &amp; Perawatan CNC</h3><p>Pengoperasian Dieboard Laser Cutting dan Autoblade Bending, pemeriksaan pra-operasional, perawatan, serta pemantauan hasil proses.</p></article>
+<article class="card"><img class="skill-icon" src="assets/Picture2_2.png" alt=""><div class="num">02 / PROBLEM SOLVING</div><h3>Troubleshooting &amp; Eskalasi</h3><p>Mengamati gangguan, melakukan pemeriksaan awal, menguji hasil, dan melibatkan teknisi terkait jika dibutuhkan.</p></article>
+<article class="card"><img class="skill-icon" src="assets/Picture3_1.png" alt=""><div class="num">03 / OPTIMASI</div><h3>Optimasi Proses &amp; DXF</h3><p>Penyesuaian file DXF, layout pemanfaatan material, serta pengoptimalan parameter proses untuk mendukung kualitas dan kelancaran produksi.</p></article>
+<article class="card"><img class="skill-icon" src="assets/Picture4.png" alt=""><div class="num">04 / DATA</div><h3>Excel &amp; Monitoring</h3><p>Pengolahan data operasional menggunakan tabel, formula, PivotTable, PivotChart, slicer, timeline, dan dashboard.</p></article>
 </div></div></section>
-<section id="proyek"><div class="container"><div class="head"><div><div class="eyebrow">03 / Contoh Pekerjaan</div><h2>Proyek &amp; Sistem Kerja</h2></div><p>Ringkasan jenis pekerjaan dan pendekatan yang digunakan. Data untuk demonstrasi publik harus berupa data dummy.</p></div><div class="grid">
-<article class="card"><div class="num">PROJECT 01</div><h3>Record Performa Harian</h3><p>Pencatatan rencana kerja dan pemantauan progres pekerjaan outstanding untuk membantu monitoring operasional.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Data dummy</span><span class="tag">Monitoring</span></div></article>
+<section id="alur"><div class="container"><div class="head"><div><div class="eyebrow">03 / CNC & Workflow</div><h2>Dua Mesin, Satu Siklus Kerja</h2></div><p>Gambaran umum alur pekerjaan dari gambar kerja hingga pemeriksaan hasil.</p></div><div class="section-pattern" aria-label="Ilustrasi mesin">
+<figure class="machine-figure"><img src="assets/Picture5_1.png" alt="Ilustrasi laser cutting"><figcaption><strong>Laser Cutting</strong>Memotong material multipleks sesuai pola DXF.</figcaption></figure>
+<figure class="machine-figure"><img src="assets/Picture6_1.png" alt="Ilustrasi bending steel rule"><figcaption><strong>Autoblade Bending</strong>Membentuk dan memproses steel rule sesuai gambar kerja.</figcaption></figure>
+</div>
+<div class="flow" aria-label="Siklus kerja"><span>DXF</span><b>→</b><span>MATERIAL</span><b>→</b><span>SETUP</span><b>→</b><span>PROSES</span><b>→</b><span>QC</span></div><div class="steps"><article class="step"><strong>01 / INPUT</strong><h3>File & pekerjaan</h3><p>Menyiapkan file DXF dan daftar pekerjaan/outstanding.</p></article><article class="step"><strong>02 / SETUP</strong><h3>Material & mesin</h3><p>Menyiapkan material, layout, dan parameter proses.</p></article><article class="step"><strong>03 / PROSES</strong><h3>Cutting & bending</h3><p>Menjalankan proses dan memantau kondisi serta hasilnya.</p></article><article class="step"><strong>04 / QC</strong><h3>Pemeriksaan hasil</h3><p>Memeriksa presisi, konsistensi, dan melakukan pendataan.</p></article></div><div class="note" style="margin-top:18px"><strong>Kontrol kerja:</strong> pemeriksaan pra-operasional · kebersihan mesin dan area kerja · pemantauan hasil · perawatan sesuai kebutuhan.</div></div></section>
+<section id="troubleshooting"><div class="container"><div class="head"><div><div class="eyebrow">04 / Troubleshooting</div><h2>Mengurangi Downtime Mesin</h2></div><p>Penanganan gangguan dilakukan bertahap, disertai pengujian dan eskalasi saat masalah belum terselesaikan.</p></div><div class="steps trouble-cards"><article class="step"><img class="trouble-icon" src="assets/Picture2_2.png" alt=""><strong>01 / AMATI</strong><h3>Amati & identifikasi</h3><p>Mengenali gejala dan memastikan kondisi gangguan.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture8_1.png" alt=""><strong>02 / IDENTIFIKASI</strong><h3>Analisis & tindakan</h3><p>Melakukan pemeriksaan dan troubleshooting awal sesuai kemampuan serta kewenangan.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture3_1.png" alt=""><strong>03 / ANALISIS</strong><h3>Uji & evaluasi</h3><p>Memeriksa apakah proses kembali berjalan normal atau gangguan berulang.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture1_3.png" alt=""><strong>04 / PERBAIKAN</strong><h3>Eskalasi</h3><p>Berkoordinasi dengan teknisi dan pihak terkait jika perbaikan awal belum berhasil.</p></article></div><div class="trouble-diagram" role="img" aria-label="Diagram troubleshooting responsif: amati, identifikasi, analisis, perbaikan, uji dan evaluasi. Jika belum selesai, eskalasi dan ulangi pemeriksaan; jika selesai, proses kembali normal."><div class="diagram-main"><span>01 AMATI</span><b>→</b><span>02 IDENTIFIKASI</span><b>→</b><span>03 ANALISIS</span><b>→</b><span>04 PERBAIKAN</span></div><div class="diagram-bottom"><span class="escalate">↶ ESKALASI</span><span class="decision">06 EVALUASI</span><span class="done">✓ DONE</span><span class="test">05 UJI</span></div><div class="diagram-caption"><span>Belum selesai: eskalasi dan ulangi pemeriksaan</span><span>Selesai: proses kembali normal</span></div></div><article class="card" style="margin-top:16px"><div class="num">STUDI KASUS ESKALASI</div><h3>Output laser tidak konsisten menembus material dan berlangsung lama</h3><p><strong>Upaya mandiri:</strong> pemeriksaan dan troubleshooting awal belum menyelesaikan gangguan.</p><p><strong>Eskalasi:</strong> koordinasi dengan teknisi dan rekomendasi developer untuk penggantian tabung CO₂.</p><p><strong>Hasil:</strong> proses laser dan output kembali normal.</p></article></div></section>
+<section id="optimasi"><div class="container"><div class="head"><div><div class="eyebrow">05 / Optimasi</div><h2>Optimasi Proses & File DXF</h2></div><p>Pengamatan parameter, penyesuaian gambar kerja, dan validasi hasil untuk mendukung kualitas, konsistensi, serta efisiensi.</p></div><div class="grid"><article class="card"><div class="num">PARAMETER PROSES</div><h3>Faktor yang diamati</h3><ul><li>Alignment jalur optik</li><li>Cermin reflektor dan lensa fokus</li><li>Ketinggian nozzle</li><li>Speed dan power/layer</li><li>Lebar celah potong</li><li>Pendingin, udara, dan exhaust</li></ul></article><article class="card"><div class="num">OPTIMASI DXF</div><h3>Layout & identitas pekerjaan</h3><ul><li>Penyesuaian layout untuk mengurangi sisa material.</li><li>Mempertimbangkan holding point dan ruang gerak nozzle.</li><li>Pengendalian scrap/residu melalui pengaturan gambar kerja.</li><li>Pelabelan identitas dieboard untuk membantu penelusuran riwayat pekerjaan.</li></ul></article></div><div class="note" style="margin-top:18px"><strong>Validasi:</strong> celah potong presisi, lensa fokus bersih dan kering, serta asap dan residu terkendali. Rincian parameter internal tidak ditampilkan.</div></div></section>
+<section id="proyek"><div class="container"><div class="head"><div><div class="eyebrow">06 / Sistem Data Operasional</div><h2>Contoh Sistem Kerja</h2></div><p>Ringkasan jenis pekerjaan dan pendekatan yang digunakan. Data untuk demonstrasi publik harus berupa data dummy.</p></div><div class="grid">
+<article class="card"><div class="num">PROJECT 01</div><h3>Record Performa Harian</h3><p>Pencatatan rencana kerja dan pembaruan progres outstanding untuk membantu monitoring operasional.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Data dummy</span><span class="tag">Monitoring</span></div></article>
 <article class="card"><div class="num">PROJECT 02</div><h3>Service Dieboard</h3><p>Pengelolaan riwayat servis untuk memudahkan penelusuran catatan perawatan dan gangguan mesin.</p><div class="tags"><span class="tag">Riwayat servis</span><span class="tag">Evaluasi</span></div></article>
 <article class="card"><div class="num">PROJECT 03</div><h3>Monitoring Penggunaan CO₂</h3><p>Pengolahan data durasi penggunaan tabung CO₂ sebagai bahan monitoring dan evaluasi operasional.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Dashboard</span><span class="tag">Data dummy</span></div></article>
 <article class="card"><div class="num">PROJECT 04</div><h3>Dashboard Stok &amp; Optimasi DXF</h3><p>Contoh pendekatan monitoring ketersediaan material serta penyesuaian layout file DXF dan identitas pekerjaan.</p><div class="tags"><span class="tag">PivotChart</span><span class="tag">DXF</span><span class="tag">Data dummy</span></div></article>
-</div><div class="note" style="margin-top:18px">Catatan: jangan unggah data, gambar, nama pelanggan, kode barang, atau dokumen internal yang bersifat rahasia. Tambahkan tautan ke berkas portofolio yang sudah dianonimkan setelah siap dipublikasikan.</div></div></section>
-<section id="pengalaman"><div class="container"><div class="head"><div><div class="eyebrow">04 / Pengalaman</div><h2>Perjalanan Profesional</h2></div><p>Pengalaman kerja yang membentuk kedisiplinan, pelayanan, dan kemampuan operasional.</p></div><div class="experience"><div class="date">Des 2022 — Sekarang</div><div><h3>Staf R&amp;D – Operator CNC / Administrasi Data</h3><p style="color:var(--muted)">PT Pura Corrugated Box · Kudus · Outsourcing</p><ul><li>Mengoperasikan dan merawat mesin CNC untuk mendukung produksi komponen pisau dan creasing.</li><li>Melakukan penanganan awal gangguan, penyesuaian file DXF, dan pengamatan parameter proses.</li><li>Mengelola data kerja berbasis Excel serta berkoordinasi lintas divisi sesuai kebutuhan operasional.</li></ul></div></div><div class="experience" style="margin-top:26px"><div class="date">Pengalaman sebelumnya</div><div><h3>Pelayanan, Pengajaran &amp; Dukungan Fasilitas</h3><p style="color:var(--muted)">Pengalaman di layanan parkir, tenaga pengajar, dan dukungan kebersihan/fasilitas yang turut membentuk kedisiplinan, ketelitian, komunikasi, dan tanggung jawab kerja.</p></div></div></div></section>
-<section id="kontak"><div class="container"><div class="contact"><div><div class="eyebrow">05 / Kontak</div><h2>Mari Terhubung</h2><p>Terbuka untuk kesempatan kerja dan diskusi profesional yang relevan dengan operasional produksi, optimasi proses, serta pengolahan data.</p></div><div class="actions" style="margin-top:0"><a class="btn primary" href="mailto:thetoniworks@gmail.com">Kirim Email ↗</a><a class="btn" href="overview-portofolio.pdf">Lihat CV ↗</a></div></div><p class="note" style="margin-top:16px">Sebelum dipublikasikan, unggah CV versi publik yang sudah diperiksa dan pastikan nama file tautannya sesuai. Jangan tampilkan informasi pribadi yang tidak ingin dibagikan secara publik.</p></div></section>
-</main><footer><div class="container foot"><span>© <span id="year"></span> Muhammad Fatoni</span><span>Portofolio Profesional · HTML, CSS &amp; JavaScript</span></div></footer>
+</div><div class="note" style="margin-top:18px">Cuplikan sistem ditampilkan untuk memperlihatkan struktur pencatatan, analisis, dan visualisasi data operasional.</div></div></section>
+<section id="data"><div class="container"><div class="head"><div><div class="eyebrow">07 / Data & Dashboard</div><h2>Dari Data Menjadi Informasi</h2></div><p>Data terstruktur membantu monitoring, analisis pola, evaluasi, dan penentuan tindak lanjut.</p></div><div class="grid data-grid"><article class="card"><div class="num">ALUR PENGOLAHAN</div><h3>Dashboard sebagai dasar evaluasi</h3><div class="flow"><span>DATA</span><b>→</b><span>INFORMASI</span><b>→</b><span>MONITORING</span><b>→</b><span>EVALUASI</span><b>→</b><span>TINDAKAN</span></div><p>Perangkat Excel yang digunakan meliputi Table, Formula, PivotTable, PivotChart, Slicer, dan Timeline.</p></article></div><div class="note" style="margin-top:18px">Cuplikan terpilih berikut memperlihatkan pencatatan harian, dashboard, riwayat servis, serta monitoring CO₂ dan stok gudang.</div>
+<div class="excel-gallery" aria-label="Galeri sistem Excel operasional">
+<figure class="excel-shot">
+<a href="assets/excel_performance_record.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Performance Record Daily ukuran penuh"><img src="assets/excel_performance_record.png" alt="Screenshot Excel: Performance Record Daily" loading="lazy"></a>
+<figcaption><strong>Performance Record Daily</strong><span>Pencatatan pekerjaan harian, status, dan validasi input.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_performance_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Dashboard Performance ukuran penuh"><img src="assets/excel_performance_dashboard.png" alt="Screenshot Excel: Dashboard Performance" loading="lazy"></a>
+<figcaption><strong>Dashboard Performance</strong><span>Visualisasi performa bulanan, status, dan pelanggan.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_service_database.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Database Service Dieboard ukuran penuh"><img src="assets/excel_service_database.png" alt="Screenshot Excel: Database Service Dieboard" loading="lazy"></a>
+<figcaption><strong>Database Service Dieboard</strong><span>Pencatatan riwayat servis dan komponen pekerjaan.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_service_pivot.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar PivotTable Service ukuran penuh"><img src="assets/excel_service_pivot.png" alt="Screenshot Excel: PivotTable Service" loading="lazy"></a>
+<figcaption><strong>PivotTable Service</strong><span>Analisis kategori, bulan, dan pelanggan.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_service_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Dashboard Service ukuran penuh"><img src="assets/excel_service_dashboard.png" alt="Screenshot Excel: Dashboard Service" loading="lazy"></a>
+<figcaption><strong>Dashboard Service</strong><span>Ringkasan servis berdasarkan kategori, waktu, dan pelanggan.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_co2_monitor.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Monitor Penggunaan CO₂ ukuran penuh"><img src="assets/excel_co2_monitor.png" alt="Screenshot Excel: Monitor Penggunaan CO₂" loading="lazy"></a>
+<figcaption><strong>Monitor Penggunaan CO₂</strong><span>Pencatatan durasi penggunaan tabung laser.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_co2_pivot.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar PivotTable Penggunaan CO₂ ukuran penuh"><img src="assets/excel_co2_pivot.png" alt="Screenshot Excel: PivotTable Penggunaan CO₂" loading="lazy"></a>
+<figcaption><strong>PivotTable Penggunaan CO₂</strong><span>Rekap penggunaan bulanan dan pelanggan.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_co2_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Dashboard Penggunaan CO₂ ukuran penuh"><img src="assets/excel_co2_dashboard.png" alt="Screenshot Excel: Dashboard Penggunaan CO₂" loading="lazy"></a>
+<figcaption><strong>Dashboard Penggunaan CO₂</strong><span>Ringkasan penggunaan dan visualisasi tren.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_warehouse_database.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Database Stok Gudang ukuran penuh"><img src="assets/excel_warehouse_database.png" alt="Screenshot Excel: Database Stok Gudang" loading="lazy"></a>
+<figcaption><strong>Database Stok Gudang</strong><span>Data stok, mutasi, saldo akhir, dan permintaan.</span></figcaption>
+</figure>
+<figure class="excel-shot">
+<a href="assets/excel_warehouse_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Buka gambar Dashboard &amp; PivotTable Stok ukuran penuh"><img src="assets/excel_warehouse_dashboard.png" alt="Screenshot Excel: Dashboard &amp; PivotTable Stok" loading="lazy"></a>
+<figcaption><strong>Dashboard &amp; PivotTable Stok</strong><span>Perbandingan stok gudang dan kebutuhan divisi.</span></figcaption>
+</figure>
+</div>
+</div></section>
+<section id="kolaborasi"><div class="container"><div class="head"><div><div class="eyebrow">08 / Koordinasi</div><h2>Kolaborasi Lintas Divisi</h2></div><p>Koordinasi dilakukan berdasarkan kebutuhan operasional dan jenis gangguan yang ditemukan.</p></div><div class="grid"><article class="card"><h3>Teknisi</h3><p>Perbaikan kelistrikan.</p></article><article class="card"><h3>Mekanik</h3><p>Gangguan mekanis.</p></article><article class="card"><h3>Utility</h3><p>Sistem udara bertekanan dan pendingin.</p></article><article class="card"><h3>IT</h3><p>Software dan jaringan lokal.</p></article><article class="card"><h3>Gudang / CC</h3><p>Database, bon, dan stok opname.</p></article><article class="card"><h3>CS / Produksi</h3><p>Prioritas pekerjaan mendesak.</p></article></div><div class="flow-strip" aria-label="Alur koordinasi"><span class="flow-chip">KEBUTUHAN</span><b class="flow-arrow">→</b><span class="flow-chip">KOORDINASI</span><b class="flow-arrow">→</b><span class="flow-chip">TINDAKAN</span><b class="flow-arrow">→</b><span class="flow-chip">KONFIRMASI</span></div></div></section>
+<section id="pengalaman"><div class="container"><div class="head"><div><div class="eyebrow">09 / Pengalaman</div><h2>Perjalanan Profesional</h2></div><p>Pengalaman kerja yang membentuk kedisiplinan, pelayanan, dan kemampuan operasional.</p></div><div class="experience"><div class="date">Des 2022 — Sekarang</div><div><h3>Staf R&amp;D – Operator CNC / Administrasi Data</h3><p style="color:var(--muted)">PT Pura Corrugated Box · Kudus · Outsourcing</p><ul><li>Mengoperasikan dan merawat mesin CNC untuk mendukung produksi komponen pisau dan creasing.</li><li>Melakukan penanganan awal gangguan, penyesuaian file DXF, dan pengamatan parameter proses.</li><li>Mengelola data kerja berbasis Excel serta berkoordinasi lintas divisi sesuai kebutuhan operasional.</li></ul></div></div><div class="experience" style="margin-top:26px"><div class="date">Pengalaman sebelumnya</div><div><h3>Pelayanan, Pengajaran &amp; Dukungan Fasilitas</h3><p style="color:var(--muted)">Pengalaman di layanan parkir, tenaga pengajar, dan dukungan kebersihan/fasilitas yang turut membentuk kedisiplinan, ketelitian, komunikasi, dan tanggung jawab kerja.</p></div></div></div></section>
+<section id="kontak"><div class="container"><div class="contact"><div><div class="eyebrow">10 / Kontak</div><h2>Hubungi Saya</h2><p>Terbuka untuk kesempatan kerja dan diskusi profesional yang relevan dengan operasional produksi, optimasi proses, serta pengolahan data.</p></div><div class="actions" style="margin-top:0"><a class="btn primary" href="mailto:thetoniworks@gmail.com">Kirim Email ↗</a><a class="btn" href="CV_Muhammad%20Fatoni.pdf" target="_blank" rel="noopener noreferrer">Lihat CV ↗</a></div></div></div></section>
+</main>
+
+<aside class="desktop-social-rail" aria-label="QR dan tautan media sosial">
+  <div class="rail-label">Portfolio</div>
+  <img class="rail-qr" src="assets/portfolio_qr.png" alt="QR untuk membuka galeri portofolio">
+  <div class="rail-caption">Scan / tap QR<br>ke galeri portofolio</div>
+  <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.2 10.13 24v-8.44H7.08v-3.49h3.05V9.4c0-3.03 1.8-4.72 4.56-4.72 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.9v2.27h3.35l-.54 3.49H13.9V24C19.61 23.2 24 18.1 24 12.07z"/></svg>
+    Facebook
+  </a>
+  <a class="social-link" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M20.52 3.48A11.8 11.8 0 0 0 12.1 0C5.55 0 .22 5.33.22 11.9c0 2.1.55 4.15 1.6 5.96L.12 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.49-8.42zM12.1 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.74.98 1-3.65-.24-.38a9.85 9.85 0 1 1 8.39 4.64zm5.42-7.39c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+    WhatsApp
+  </a>
+  <a class="social-link" href="mailto:thetoniworks@gmail.com" aria-label="Email">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.5 4h19A2.5 2.5 0 0 1 24 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-19A2.5 2.5 0 0 1 0 17.5v-11A2.5 2.5 0 0 1 2.5 4zm9.5 8.1L21.5 6h-19zM2 8v9.5c0 .28.22.5.5.5h19c.28 0 .5-.22.5-.5V8l-9.4 6.6a1 1 0 0 1-1.2 0z"/></svg>
+    Email
+  </a>
+</aside>
+<button class="back-top" id="backTop" type="button" aria-label="Kembali ke atas" title="Kembali ke atas">↑</button><footer><div class="container foot"><span>© <span id="year"></span> Muhammad Fatoni</span><span>Portofolio Profesional · HTML, CSS &amp; JavaScript</span></div></footer>
 <script>
 const toggle=document.getElementById('themeToggle'),root=document.documentElement;
-if(localStorage.getItem('portfolio-theme')==='light')root.setAttribute('data-theme','light');
-function updateToggle(){const light=root.getAttribute('data-theme')==='light';toggle.textContent=light?'☾ Dark':'☀ Light';toggle.setAttribute('aria-label',light?'Aktifkan mode gelap':'Aktifkan mode terang');}
-updateToggle();toggle.addEventListener('click',()=>{const light=root.getAttribute('data-theme')==='light';if(light)root.removeAttribute('data-theme');else root.setAttribute('data-theme','light');localStorage.setItem('portfolio-theme',light?'dark':'light');updateToggle();});
+if(localStorage.getItem('portfolio-theme')==='dark')root.setAttribute('data-theme','dark');
+function updateToggle(){const dark=root.getAttribute('data-theme')==='dark';toggle.textContent=dark?'☀ Light':'☾ Dark';toggle.setAttribute('aria-label',dark?'Aktifkan mode terang':'Aktifkan mode gelap');}
+updateToggle();toggle.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')==='dark';if(dark)root.removeAttribute('data-theme');else root.setAttribute('data-theme','dark');localStorage.setItem('portfolio-theme',dark?'light':'dark');updateToggle();});
 document.getElementById('year').textContent=new Date().getFullYear();
+const backTop=document.getElementById('backTop');
+function updateBackTop(){const y=Math.max(window.scrollY||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);const visible=y>180;backTop.classList.toggle('is-visible',visible);backTop.classList.toggle('force-visible',visible)}
+window.addEventListener('scroll',updateBackTop,{passive:true});window.addEventListener('touchmove',updateBackTop,{passive:true});window.addEventListener('pageshow',updateBackTop);window.addEventListener('resize',updateBackTop,{passive:true});updateBackTop();
+backTop.addEventListener('click',()=>{const behavior=window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';window.scrollTo({top:0,behavior});document.documentElement.scrollTo({top:0,behavior});document.body.scrollTo({top:0,behavior});});
+// Navigasi aktif stabil: pilih section berdasarkan garis aktivasi di bawah header.
+const sectionLinks=[...document.querySelectorAll('.navlinks a[href^="#"]')];
+const observedSections=sectionLinks.map(link=>({link,section:document.querySelector(link.getAttribute('href'))})).filter(item=>item.section);
+function setActiveSection(id){
+  sectionLinks.forEach(link=>{const active=link.getAttribute('href')==='#'+id;link.classList.toggle('is-active',active);if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
+}
+let activeFrame=0;
+function syncActiveSection(){
+  activeFrame=0;
+  const activationLine=Math.max(110,document.querySelector('.topbar')?.getBoundingClientRect().height||80)+Math.min(110,window.innerHeight*.16);
+  let current=observedSections[0];
+  for(const item of observedSections){
+    if(item.section.getBoundingClientRect().top<=activationLine)current=item;
+    else break;
+  }
+  if(current)setActiveSection(current.section.id);
+}
+function requestActiveSync(){if(!activeFrame)activeFrame=requestAnimationFrame(syncActiveSection)}
+window.addEventListener('scroll',requestActiveSync,{passive:true});
+window.addEventListener('resize',requestActiveSync,{passive:true});
+sectionLinks.forEach(link=>link.addEventListener('click',()=>setActiveSection(link.hash.slice(1))));
+if(observedSections.length){setActiveSection(observedSections[0].section.id);requestActiveSync();}
+
+// Tampilkan nama di header hanya setelah judul utama tidak lagi terlihat.
+const heroTitle=document.querySelector('.hero h1'),headerBrand=document.getElementById('headerBrand');
+if('IntersectionObserver' in window){
+  const titleObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>headerBrand.classList.toggle('is-visible',!entry.isIntersecting));
+  },{threshold:0.05});
+  titleObserver.observe(heroTitle);
+}else{
+  const updateBrand=()=>headerBrand.classList.toggle('is-visible',window.scrollY>heroTitle.offsetTop+heroTitle.offsetHeight);
+  window.addEventListener('scroll',updateBrand,{passive:true});updateBrand();
+}
+
+const rail = document.querySelector('.desktop-social-rail');
+const topbar = document.querySelector('.topbar');
+function syncRailTop() {
+  if (rail && topbar) {
+    document.documentElement.style.setProperty('--header-height', `${topbar.getBoundingClientRect().height}px`);
+  }
+}
+syncRailTop();
+window.addEventListener('resize', syncRailTop, {passive:true});
+
 </script></body></html>
