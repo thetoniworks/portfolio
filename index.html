@@ -654,13 +654,828 @@ section:nth-of-type(4n+1):before{left:3%;bottom:4px;width:170px;height:170px;bac
   }
 }
 
-</style></head>
+
+
+/* Revisi terbatas: garis aksen tagline seluruh section mengikuti efek aksen cover */
+.head p {
+  position: relative;
+  padding-bottom: 22px;
+}
+.head p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: clamp(120px, 17vw, 175px);
+  height: 4px;
+  border-radius: 99px;
+  background: var(--accent);
+  box-shadow: 0 2px 5px color-mix(in srgb, var(--accent) 25%, transparent);
+  transform: translateX(-95px);
+  opacity: 0;
+  animation: hero-accent-float 1.25s cubic-bezier(.22,.75,.25,1) .15s both;
+}
+@media(max-width:700px) {
+  .head p { padding-bottom: 18px; }
+  .head p::after { width: 112px; height: 3px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .head p::after { animation: none; transform: none; opacity: 1; }
+}
+
+
+
+/* Revisi khusus: susunan kartu satu kolom pada layar ponsel, termasuk viewport lebar. */
+@media (max-width: 900px) {
+  .grid,
+  .steps,
+  .visual-pair,
+  .section-pattern,
+  .excel-gallery,
+  .diagram-bottom {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .experience {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+
+/* Revisi desktop: semua kelompok kartu maksimal dua kolom; selebihnya turun ke baris berikutnya. */
+@media screen and (min-width: 1100px) {
+  .grid,
+  .steps,
+  .visual-pair,
+  .section-pattern,
+  .excel-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+
+
+/* Revisi terbatas: kartu tunggal pada 07 / Data & Dashboard memenuhi lebar konten, seperti kartu Profil. */
+@media screen and (min-width: 1100px) {
+  #data .data-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+  }
+  #data .data-grid > .card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  /* Diagram Data & Dashboard tetap satu baris; jika ruang kurang, gulir horizontal tanpa memecah alur. */
+  #data .head p::after {
+    display: none !important;
+    content: none !important;
+  }
+  #data .data-grid .flow {
+    display: flex;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(10px, 1.5vw, 22px);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 8px 4px 12px;
+    scrollbar-width: thin;
+  }
+  #data .data-grid .flow span {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  #data .data-grid .flow b {
+    flex: 0 0 auto;
+  }
+}
+
+/* Revisi final: alur Data & Dashboard rapi, teks tidak terpotong atau terpecah. */
+#data .data-grid .flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: clamp(5px, .8vw, 12px);
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+#data .data-grid .flow span {
+  flex: 0 1 auto;
+  min-width: 0;
+  padding: clamp(10px, 1vw, 14px) clamp(9px, 1.35vw, 18px);
+  font-size: clamp(.72rem, 1.15vw, 1rem);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  box-sizing: border-box;
+}
+#data .data-grid .flow b {
+  flex: 0 0 auto;
+  font-size: clamp(.75rem, 1.2vw, 1rem);
+}
+@media (max-width: 700px) {
+  #data .data-grid .flow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  #data .data-grid .flow span {
+    flex: 0 1 auto;
+    font-size: clamp(.7rem, 2.8vw, .85rem);
+    padding: 10px 12px;
+  }
+  #data .data-grid .flow b { display: none; }
+}
+
+
+
+/* Revisi terarah: alur kolaborasi memakai shape per tahap, konsisten dengan alur Data & Dashboard. */
+#kolaborasi .flow-strip {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  align-items: center;
+  justify-items: stretch;
+  gap: clamp(6px, 1vw, 14px);
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(16px, 2.2vw, 28px);
+}
+#kolaborasi .flow-strip .flow-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(50px, 5vw, 64px);
+  box-sizing: border-box;
+  padding: 12px clamp(6px, .8vw, 14px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface2);
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  font-size: clamp(.72rem, 1.1vw, 1rem);
+  line-height: 1.2;
+  font-weight: 800;
+}
+#kolaborasi .flow-strip .flow-arrow {
+  display: block;
+  justify-self: center;
+  color: var(--accent);
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  line-height: 1;
+}
+@media (max-width: 760px) {
+  #kolaborasi .flow-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px;
+    padding: 14px;
+  }
+  #kolaborasi .flow-strip .flow-chip {
+    min-height: 52px;
+    padding: 10px 6px;
+    font-size: clamp(.72rem, 2.8vw, .9rem);
+    white-space: nowrap;
+  }
+  #kolaborasi .flow-strip .flow-arrow { display: none !important; }
+}
+
+
+/* Revisi aksesibilitas dan alur troubleshooting: percabangan evaluasi jelas, kontras dark mode nyaman. */
+.trouble-diagram { padding:clamp(14px,2.2vw,24px); }
+.route-next { display:flex; flex-direction:column; align-items:flex-end; padding-right:12.5%; margin:2px 0 0; line-height:1.1; }
+.route-down { color:var(--accent); font-size:1.5rem; font-weight:800; }
+.route-note { color:var(--muted); font-size:.72rem; }
+.diagram-test-eval { display:grid; grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr); align-items:center; gap:10px; width:min(520px,76%); margin:8px 5% 0 auto; }
+.diagram-test-eval .test,.diagram-test-eval .decision { display:flex; align-items:center; justify-content:center; min-height:58px; padding:12px; border:1px solid var(--line); border-radius:12px; background:var(--surface2); text-align:center; font-weight:800; }
+.diagram-test-eval .decision { background:#fffbd0; border-color:#d8b34f; color:#38351b; }
+.diagram-test-eval b { color:var(--accent); text-align:center; font-size:1.35rem; }
+.branch-label { margin:18px 0 8px; color:var(--muted); font-size:.75rem; font-weight:800; letter-spacing:.1em; text-align:center; }
+.diagram-branches { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.branch { display:grid; grid-template-columns:auto 24px auto; align-items:center; justify-content:center; gap:8px; border:1px solid var(--line); border-radius:12px; padding:12px; background:var(--surface2); }
+.branch-condition { font-size:.72rem; font-weight:800; letter-spacing:.04em; color:var(--muted); }
+.branch> b { color:var(--accent); text-align:center; font-size:1.25rem; }
+.branch .escalate,.branch .done { display:flex; justify-content:center; align-items:center; min-height:48px; padding:10px 14px; border:1px solid; border-radius:10px; font-weight:800; white-space:nowrap; }
+.branch .escalate { background:#fff0e2; border-color:#e8791b; color:#91440c; }
+.branch .done { background:#e5f5eb; border-color:#2e9462; color:#236c48; }
+.branch-explain { grid-column:1 / -1; color:var(--muted); font-size:.82rem; line-height:1.45; text-align:center; }
+.diagram-caption { flex-wrap:wrap; }
+.diagram-caption span:first-child { color:#a34d0b; }
+.diagram-caption span:last-child { color:#278454; }
+[data-theme=dark] .diagram-caption span:first-child { color:#ffd0a6; }
+[data-theme=dark] .diagram-caption span:last-child { color:#a8edc4; }
+[data-theme=dark] .route-note,[data-theme=dark] .branch-condition { color:#d3dbea; }
+@media(max-width:760px) {
+ .diagram-main { grid-template-columns:minmax(0,1fr); gap:5px; }
+ .diagram-main b { transform:rotate(90deg); }
+ .route-next { align-items:center; padding-right:0; }
+ .diagram-test-eval { width:100%; margin:8px 0 0; grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr); gap:6px; }
+ .diagram-test-eval .test,.diagram-test-eval .decision { min-height:50px; padding:8px 5px; font-size:.8rem; }
+ .diagram-branches { grid-template-columns:minmax(0,1fr); gap:8px; }
+ .branch { grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr); }
+ .branch-condition { grid-column:1 / -1; text-align:center; }
+ .branch-explain { font-size:.8rem; }
+ .diagram-caption { flex-direction:column; gap:5px; }
+}
+
+
+/* Revisi responsif troubleshooting: urutan Uji lalu Evaluasi, teks tetap utuh, cabang tidak bertumpuk. */
+.diagram-main span {
+  font-size: clamp(.76rem, 1.15vw, 1rem);
+  white-space: nowrap;
+  padding-inline: clamp(5px, 1vw, 12px);
+  min-width: 0;
+}
+.diagram-main { gap: clamp(4px, .7vw, 10px); }
+.diagram-test-eval .test,
+.diagram-test-eval .decision {
+  font-size: clamp(.78rem, 1.15vw, .98rem);
+  white-space: nowrap;
+  min-width: 0;
+}
+.diagram-branches { align-items: stretch; }
+.branch { min-width: 0; }
+.branch .escalate, .branch .done {
+  min-width: 0;
+  max-width: 100%;
+  font-size: clamp(.76rem, 1.05vw, .98rem);
+  padding-inline: clamp(5px, 1vw, 14px);
+}
+.branch-condition { font-size: clamp(.68rem, .9vw, .78rem); }
+.branch-explain { overflow-wrap: anywhere; }
+.diagram-caption span { line-height: 1.45; }
+@media(max-width:760px) {
+  .diagram-main { grid-template-columns:minmax(0,1fr); }
+  .diagram-main span { width:100%; font-size:clamp(.82rem, 3.5vw, .98rem); }
+  .diagram-main b { transform:rotate(90deg); }
+  .route-note { font-size:.78rem; text-align:center; }
+  .diagram-test-eval { grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr); width:100%; }
+  .diagram-test-eval .test,.diagram-test-eval .decision { font-size:clamp(.76rem, 3.2vw, .9rem); white-space:nowrap; }
+  .diagram-branches { grid-template-columns:minmax(0,1fr); }
+  .branch { grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr); gap:7px; padding:12px; }
+  .branch-condition { grid-column:1 / -1; text-align:center; font-size:.75rem; }
+  .branch .escalate,.branch .done { width:100%; font-size:clamp(.76rem, 3.1vw, .9rem); padding:9px 4px; white-space:nowrap; }
+  .branch-explain { grid-column:1 / -1; font-size:.82rem; }
+  .diagram-caption { align-items:flex-start; }
+  .diagram-caption span { font-size:clamp(.78rem, 3vw, .9rem); }
+}
+@media(max-width:360px) {
+  .trouble-diagram { padding:10px; }
+  .diagram-test-eval { grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr); gap:4px; }
+  .diagram-test-eval .test,.diagram-test-eval .decision { font-size:.72rem; padding-inline:3px; }
+  .branch { padding:9px; gap:4px; }
+  .branch .escalate,.branch .done { font-size:.72rem; }
+}
+
+
+
+/* Revisi final alur troubleshooting: evaluasi sebagai keputusan IF dengan dua cabang. */
+.trouble-diagram { overflow: hidden; }
+.diagram-test-eval {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(24px, 4vw, 44px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(6px, 1vw, 12px);
+  width: min(720px, 82%);
+  margin: 8px auto 0;
+}
+.diagram-test-eval .decision {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: clamp(64px, 7vw, 94px);
+  aspect-ratio: 2.15 / 1;
+  padding: 12px clamp(20px, 3vw, 36px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: clamp(.78rem, 1.2vw, 1rem);
+  font-weight: 850;
+  color: #38351b;
+  background: #fffbd0;
+  border: 2px solid #d8b34f;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  box-sizing: border-box;
+}
+.diagram-test-eval .test-eval-arrow {
+  grid-column: 2;
+  grid-row: 1;
+  display: block;
+  color: var(--accent);
+  text-align: center;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  line-height: 1;
+}
+.diagram-test-eval .test {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: clamp(58px, 6.5vw, 82px);
+  padding: 10px clamp(8px, 1.5vw, 18px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface2);
+  color: var(--text);
+  font-size: clamp(.78rem, 1.2vw, 1rem);
+  font-weight: 850;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+@media (max-width: 760px) {
+  .diagram-test-eval {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .diagram-test-eval .decision {
+    min-height: 64px;
+    padding: 8px 15px;
+    font-size: clamp(.72rem, 3vw, .88rem);
+  }
+  .diagram-test-eval .test {
+    min-height: 56px;
+    padding: 8px 4px;
+    font-size: clamp(.72rem, 3vw, .88rem);
+  }
+  .diagram-test-eval .test-eval-arrow { font-size: 1.1rem; }
+}
+@media (max-width: 360px) {
+  .diagram-test-eval { grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr); gap: 3px; }
+  .diagram-test-eval .decision { font-size: .68rem; padding-inline: 11px; }
+  .diagram-test-eval .test { font-size: .68rem; }
+}
+
+
+/* Revisi terarah: alur troubleshooting desktop dua baris, mobile vertikal dan cabang hasil rapi. */
+.trouble-diagram { overflow: visible; }
+.trouble-flow { display:flex; flex-direction:column; gap:clamp(18px,2.5vw,30px); }
+.flow-row { display:grid; align-items:center; gap:clamp(8px,1.2vw,18px); min-width:0; }
+.flow-row-top { grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); position:relative; padding-bottom:20px; }
+.flow-row-bottom { grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); }
+.flow-step { display:flex; align-items:center; justify-content:center; min-width:0; min-height:clamp(54px,5.5vw,78px); padding:clamp(8px,1vw,14px); border:1px solid var(--line); border-radius:15px; background:var(--surface2); color:var(--text); font-size:clamp(.78rem,1.15vw,1rem); font-weight:850; line-height:1.2; text-align:center; white-space:nowrap; box-sizing:border-box; }
+.flow-arrow { color:var(--accent); font-size:clamp(1.15rem,2vw,1.6rem); line-height:1; text-align:center; }
+.flow-down { position:absolute; right:calc(16.6% - 7px); bottom:-7px; color:var(--accent); font-size:1.5rem; font-weight:800; line-height:1; }
+.flow-decision { background:#fffbd0; color:#38351b; border-color:#d8b34f; border-radius:0; clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%); aspect-ratio:2.1 / 1; min-height:clamp(72px,7vw,100px); }
+/* DOM visually runs right-to-left on the second desktop row: 04 → 05 → 06. */
+.flow-row-bottom .step-06 { grid-column:1; grid-row:1; }
+.flow-row-bottom .arrow-06 { grid-column:2; grid-row:1; }
+.flow-row-bottom .step-05 { grid-column:3; grid-row:1; }
+.flow-row-bottom .arrow-05 { grid-column:4; grid-row:1; }
+.flow-row-bottom .step-04 { grid-column:5; grid-row:1; }
+.diagram-branches { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(10px,1.5vw,18px); align-items:stretch; }
+.branch { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:12px; min-width:0; padding:clamp(14px,1.8vw,22px); border:1px solid var(--line); border-radius:16px; background:var(--surface2); text-align:center; }
+.branch-condition { color:var(--muted); font-size:clamp(.75rem,.95vw,.9rem); font-weight:850; letter-spacing:.04em; }
+.branch .escalate,.branch .done { display:flex; align-items:center; justify-content:center; width:max-content; max-width:100%; min-height:48px; padding:10px 18px; border:1px solid; border-radius:12px; font-size:clamp(.82rem,1vw,1rem); font-weight:850; white-space:nowrap; box-sizing:border-box; }
+.branch .escalate { background:#fff0e2; border-color:#e8791b; color:#91440c; }
+.branch .done { background:#e5f5eb; border-color:#2e9462; color:#236c48; }
+.branch-explain { max-width:38ch; color:var(--muted); font-size:clamp(.84rem,1vw,.98rem); line-height:1.5; text-align:center; overflow-wrap:normal; }
+[data-theme=dark] .branch-condition { color:#d3dbea; }
+@media(max-width:760px) {
+ .trouble-flow { gap:0; }
+ .flow-row { display:contents; }
+ .trouble-flow { display:flex; flex-direction:column; align-items:stretch; gap:0; }
+ .flow-step { order:initial; width:100%; min-height:48px; padding:10px 8px; font-size:clamp(.82rem,3.7vw,.98rem); white-space:nowrap; border-radius:12px; }
+ .flow-arrow { display:block; font-size:0; text-align:center; color:var(--accent); line-height:1; padding:3px 0; }
+ .flow-arrow::after { content:"↓"; font-size:1.15rem; }
+ .flow-down { position:static; display:block; order:6; text-align:center; padding:3px 0; color:var(--accent); font-size:1.15rem; line-height:1; }
+ .flow-row-top .step-01 { order:1; }
+ .flow-row-top .arrow-01 { order:2; }
+ .flow-row-top .step-02 { order:3; }
+ .flow-row-top .arrow-02 { order:4; }
+ .flow-row-top .step-03 { order:5; }
+ .flow-row-bottom .step-04 { order:7; }
+ .flow-row-bottom .arrow-05 { order:8; }
+ .flow-row-bottom .step-05 { order:9; }
+ .flow-row-bottom .arrow-06 { order:10; }
+ .flow-row-bottom .step-06 { order:11; }
+ .flow-row-top .step-03::after { content:""; }
+ .flow-row-top .step-03 { margin-bottom:0; }
+ .flow-row-bottom .flow-decision { width:100%; min-height:62px; aspect-ratio:auto; clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%); }
+ .diagram-branches { grid-template-columns:minmax(0,1fr); gap:12px; margin-top:16px; }
+ .branch { gap:10px; padding:16px 12px; }
+ .branch-condition { font-size:.82rem; }
+ .branch .escalate,.branch .done { min-height:46px; font-size:.9rem; }
+ .branch-explain { font-size:.88rem; max-width:34ch; }
+ .branch-label { margin-top:16px; }
+}
+@media(max-width:380px) {
+ .flow-step { font-size:.8rem; padding:9px 5px; }
+ .flow-row-bottom .flow-decision { min-height:56px; }
+ .branch { padding:14px 9px; }
+}
+
+
+
+/* Revisi lanjutan: gambar referensi desktop dan kondisi IF yang jelas. */
+.troubleshooting-reference-desktop {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 0 16px;
+  border-radius: 16px;
+}
+/* Urutan hasil evaluasi: kondisi belum selesai di kiri, selesai di kanan. */
+.diagram-branches {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(10px, 1.5vw, 18px);
+  align-items: stretch;
+}
+.branch { min-width: 0; }
+.branch-condition {
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  font-size: clamp(.68rem, .9vw, .9rem);
+}
+.branch .escalate, .branch .done {
+  max-width: 100%;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .troubleshooting-reference-desktop { display: none !important; }
+  /* Tetap berdampingan di HP; setiap cabang menyesuaikan lebar yang tersedia. */
+  .diagram-branches {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .branch {
+    min-width: 0;
+    padding: clamp(8px, 2.2vw, 13px) clamp(5px, 1.6vw, 10px);
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .branch-condition {
+    font-size: clamp(.58rem, 2.2vw, .76rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+  .branch .escalate, .branch .done {
+    width: 100%;
+    min-height: 38px;
+    padding: 7px 3px;
+    font-size: clamp(.61rem, 2.35vw, .8rem);
+    white-space: nowrap;
+    gap: 3px;
+  }
+  .branch-explain {
+    max-width: none;
+    font-size: clamp(.62rem, 2.25vw, .78rem);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  .branch-label { margin-top: 13px; }
+}
+@media (max-width: 360px) {
+  .diagram-branches { gap: 6px; }
+  .branch { padding: 8px 4px; gap: 7px; }
+  .branch-condition { font-size: .58rem; }
+  .branch .escalate, .branch .done { font-size: .6rem; padding-inline: 2px; }
+  .branch-explain { font-size: .61rem; }
+}
+
+
+
+/* Revisi lanjutan sesuai umpan balik: visual pembuka di atas kartu penjelasan. */
+#troubleshooting .troubleshooting-reference-desktop { display:block; width:100%; max-height:240px; object-fit:contain; margin:0 0 18px; }
+#troubleshooting .trouble-diagram { margin-top:0; margin-bottom:22px; }
+#troubleshooting .trouble-cards { margin-top:0; }
+/* Urutan hasil evaluasi: selesai kiri, belum selesai kanan. */
+#troubleshooting .diagram-branches { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#troubleshooting .branch-arrows { display:none; }
+@media (max-width:760px) {
+  #troubleshooting .troubleshooting-reference-desktop { display:none !important; }
+  #troubleshooting .trouble-diagram { margin-bottom:18px; }
+  #troubleshooting .branch-arrows { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:2px 0 4px; color:var(--accent); font-size:clamp(1.15rem,5vw,1.55rem); font-weight:800; line-height:1; text-align:center; }
+  #troubleshooting .branch-arrows span:first-child { justify-self:center; transform:translateX(8px); }
+  #troubleshooting .branch-arrows span:last-child { justify-self:center; transform:translateX(-8px); }
+  #troubleshooting .diagram-branches { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:8px; margin-top:0; align-items:stretch; }
+  #troubleshooting .branch { min-width:0; padding:clamp(8px,2.1vw,12px) clamp(5px,1.5vw,9px); gap:7px; }
+  #troubleshooting .branch-condition { font-size:clamp(.58rem,2.2vw,.75rem); line-height:1.25; letter-spacing:0; overflow-wrap:anywhere; }
+  #troubleshooting .branch .escalate, #troubleshooting .branch .done { width:100%; min-width:0; max-width:100%; min-height:38px; padding:7px 3px; font-size:clamp(.62rem,2.4vw,.82rem); white-space:normal; line-height:1.2; }
+  #troubleshooting .branch-explain { max-width:none; font-size:clamp(.62rem,2.25vw,.78rem); line-height:1.4; overflow-wrap:anywhere; }
+}
+@media (max-width:340px) {
+  #troubleshooting .diagram-branches { gap:5px !important; }
+  #troubleshooting .branch { padding:7px 4px; }
+  #troubleshooting .branch-condition { font-size:.56rem; }
+  #troubleshooting .branch-explain { font-size:.6rem; }
+  #troubleshooting .branch .escalate, #troubleshooting .branch .done { font-size:.6rem; }
+}
+
+
+
+/* Revisi desain akhir: diagram digital menjadi visual utama, percabangan IF terlihat jelas di semua layar. */
+#troubleshooting .troubleshooting-reference-desktop {
+  max-height: none;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  margin: 0 0 clamp(20px, 2.6vw, 32px);
+  border-radius: 18px;
+}
+#troubleshooting .trouble-diagram {
+  padding: clamp(18px, 2.5vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 14px 34px rgba(30, 38, 52, .07);
+  margin-bottom: 24px;
+}
+#troubleshooting .trouble-flow { gap: clamp(22px, 2.8vw, 34px); }
+#troubleshooting .flow-row-top,
+#troubleshooting .flow-row-bottom { gap: clamp(10px, 1.4vw, 20px); }
+#troubleshooting .flow-step {
+  min-height: clamp(66px, 6.2vw, 88px);
+  font-size: clamp(.88rem, 1.2vw, 1.08rem);
+  letter-spacing: .005em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+}
+#troubleshooting .flow-arrow { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+#troubleshooting .flow-decision {
+  min-height: clamp(94px, 8.2vw, 124px);
+  aspect-ratio: 2.05 / 1;
+  filter: drop-shadow(0 5px 5px rgba(20,30,45,.10));
+}
+#troubleshooting .branch-label {
+  margin: 2px 0 4px;
+  text-align: center;
+  font-size: clamp(.84rem, 1.15vw, 1rem);
+  letter-spacing: .13em;
+  font-weight: 900;
+}
+#troubleshooting .branch-arrows {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: clamp(10px, 1.5vw, 18px);
+  margin: 0 0 5px;
+  color: var(--accent);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+#troubleshooting .branch-arrows span:first-child { justify-self: center; transform: translateX(-4px); }
+#troubleshooting .branch-arrows span:last-child { justify-self: center; transform: translateX(4px); }
+#troubleshooting .diagram-branches { gap: clamp(12px, 1.8vw, 22px); }
+#troubleshooting .branch {
+  min-height: 170px;
+  padding: clamp(16px, 2vw, 24px);
+  justify-content: center;
+  box-shadow: 0 5px 16px rgba(30,38,52,.045);
+}
+#troubleshooting .branch-success { border-top: 3px solid #2e9462; }
+#troubleshooting .branch-fail { border-top: 3px solid #e8791b; }
+#troubleshooting .branch-condition { font-size: clamp(.78rem, 1vw, .96rem); letter-spacing: .045em; }
+#troubleshooting .branch .done,
+#troubleshooting .branch .escalate { min-height: 52px; padding: 11px 22px; font-size: clamp(.9rem, 1.1vw, 1.05rem); }
+#troubleshooting .branch-explain { font-size: clamp(.9rem, 1.05vw, 1rem); }
+[data-theme=dark] #troubleshooting .trouble-diagram { box-shadow: 0 14px 34px rgba(0,0,0,.16); }
+[data-theme=dark] #troubleshooting .branch-success { border-top-color: #72d6a0; }
+[data-theme=dark] #troubleshooting .branch-fail { border-top-color: #ffbd8a; }
+[data-theme=dark] #troubleshooting .branch-arrows { color: #ffc078; }
+@media (max-width: 760px) {
+  #troubleshooting .troubleshooting-reference-desktop { display: none !important; }
+  #troubleshooting .trouble-diagram { padding: 14px 12px; border-radius: 18px; margin-bottom: 18px; }
+  #troubleshooting .trouble-flow { gap: 0; }
+  #troubleshooting .flow-step { min-height: clamp(46px, 11vw, 58px); font-size: clamp(.78rem, 3.4vw, .95rem); padding: 9px 5px; }
+  #troubleshooting .flow-decision { min-height: clamp(58px, 15vw, 76px); aspect-ratio: 2.1 / 1; }
+  #troubleshooting .branch-label { margin-top: 15px; margin-bottom: 3px; font-size: .78rem; }
+  #troubleshooting .branch-arrows { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-bottom: 3px; font-size: clamp(1.6rem, 7vw, 2rem); }
+  #troubleshooting .branch-arrows span:first-child { transform: translateX(-7px); }
+  #troubleshooting .branch-arrows span:last-child { transform: translateX(7px); }
+  #troubleshooting .diagram-branches { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 8px; margin-top: 0; }
+  #troubleshooting .branch { min-height: 0; padding: clamp(9px, 2.4vw, 13px) 6px; gap: 8px; border-radius: 12px; }
+  #troubleshooting .branch-condition { font-size: clamp(.57rem, 2.25vw, .76rem); line-height: 1.25; letter-spacing: 0; overflow-wrap: anywhere; }
+  #troubleshooting .branch .done, #troubleshooting .branch .escalate { width: 100%; min-width: 0; min-height: 38px; padding: 7px 2px; font-size: clamp(.6rem, 2.5vw, .82rem); white-space: nowrap; }
+  #troubleshooting .branch-explain { max-width: none; font-size: clamp(.62rem, 2.25vw, .78rem); line-height: 1.4; overflow-wrap: anywhere; }
+}
+@media (max-width: 360px) {
+  #troubleshooting .trouble-diagram { padding: 11px 8px; }
+  #troubleshooting .branch { padding-inline: 4px; }
+  #troubleshooting .branch-condition { font-size: .56rem; }
+  #troubleshooting .branch .done, #troubleshooting .branch .escalate { font-size: .59rem; }
+  #troubleshooting .branch-explain { font-size: .6rem; }
+}
+
+
+
+/* Final revision: retain the digital diagram, hide the reference sticker, and correct desktop rail spacing. */
+#troubleshooting .troubleshooting-reference-desktop { display:none !important; }
+#troubleshooting .trouble-diagram { width:100%; max-width:100%; min-width:0; overflow:hidden; }
+#troubleshooting .flow-step { border:1px solid var(--line) !important; }
+#troubleshooting .flow-decision {
+  min-height:clamp(72px,7vw,100px) !important;
+  aspect-ratio:2.05 / 1 !important;
+}
+#troubleshooting .branch-success { order:0; }
+#troubleshooting .branch-fail { order:1; }
+@media (min-width:1100px) {
+  :root { --rail-width:260px; }
+  main {
+    width:calc(100vw - 52px - var(--rail-width) - 32px) !important;
+    max-width:1080px !important;
+    margin-left:52px !important;
+    margin-right:calc(var(--rail-width) + 32px) !important;
+    box-sizing:border-box !important;
+    min-width:0 !important;
+  }
+  footer .container {
+    width:calc(100vw - 52px - var(--rail-width) - 32px) !important;
+    max-width:1080px !important;
+    margin-left:52px !important;
+    margin-right:calc(var(--rail-width) + 32px) !important;
+    box-sizing:border-box !important;
+  }
+  .desktop-social-rail { width:var(--rail-width) !important; }
+}
+@media (min-width:1500px) {
+  :root { --rail-width:290px; }
+  main, footer .container {
+    width:calc(100vw - 76px - var(--rail-width) - 32px) !important;
+    max-width:1080px !important;
+    margin-left:76px !important;
+    margin-right:calc(var(--rail-width) + 32px) !important;
+  }
+}
+@media (max-width:1099px) {
+  main, footer .container { width:auto !important; margin-left:auto !important; margin-right:auto !important; }
+}
+@media (max-width:760px) {
+  /* Pada HP, panah samping antar-tahap disembunyikan; panah vertikal tetap dipakai. */
+  #troubleshooting .flow-row-top .arrow-01,
+  #troubleshooting .flow-row-top .arrow-02,
+  #troubleshooting .flow-row-bottom .arrow-05,
+  #troubleshooting .flow-row-bottom .arrow-06 { display:block !important; }
+  #troubleshooting .flow-row-top .arrow-01::after,
+  #troubleshooting .flow-row-top .arrow-02::after,
+  #troubleshooting .flow-row-bottom .arrow-05::after,
+  #troubleshooting .flow-row-bottom .arrow-06::after { content:"↓" !important; }
+  #troubleshooting .flow-decision {
+    min-height:clamp(58px,15vw,76px) !important;
+    aspect-ratio:2.05 / 1 !important;
+  }
+  #troubleshooting .diagram-branches {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+}
+
+
+/* FIX panah troubleshooting: desktop horizontal, HP vertikal saja. */
+@media (min-width: 761px) {
+  #troubleshooting .flow-arrow { font-size: clamp(1.3rem, 2.2vw, 1.8rem) !important; }
+  #troubleshooting .flow-arrow::after { content: none !important; }
+}
+@media (max-width: 760px) {
+  #troubleshooting .flow-arrow {
+    display: block !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    transform: none !important;
+    padding: 4px 0 !important;
+  }
+  #troubleshooting .flow-arrow::after {
+    content: "↓" !important;
+    display: inline-block !important;
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+  }
+}
+/* Revisi final: belah ketupat Evaluasi jauh lebih ramping khusus layar HP. Desktop tetap seperti semula. */
+@media (max-width: 760px) {
+  #troubleshooting .flow-decision {
+    min-height: 0 !important;
+    height: clamp(38px, 11vw, 54px) !important;
+    aspect-ratio: 5 / 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+  }
+  #troubleshooting .flow-decision.step-06 {
+    font-size: clamp(.78rem, 3.4vw, .95rem) !important;
+  }
+}
+@media (max-width: 380px) {
+  #troubleshooting .flow-decision {
+    height: 36px !important;
+    aspect-ratio: 5.3 / 1 !important;
+  }
+}
+</style>
+<style id="flow-shape-outline-revision">
+/* Outline abu-abu tipis dan konsisten untuk tahapan 01–06 pada diagram troubleshooting. */
+#troubleshooting .flow-step { border: 1.5px solid #b8bdc4 !important; }
+#troubleshooting .flow-step.flow-decision { filter: drop-shadow(0 0 1px #aeb4bc) !important; }
+[data-theme="dark"] #troubleshooting .flow-step { border-color: #687384 !important; }
+</style>
+
+<style id="flow-diamond-outline-svg-fix">
+/* Outline evaluasi mengikuti keempat sisi belah ketupat dengan SVG; ukuran/layout tetap. */
+#troubleshooting .flow-step.flow-decision {
+  border: 0 !important;
+  filter: none !important;
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpolygon points='50,1 99,25 50,49 1,25' fill='%23fffbd0' stroke='%23aeb4bc' stroke-width='1.6' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+[data-theme="dark"] #troubleshooting .flow-step.flow-decision {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpolygon points='50,1 99,25 50,49 1,25' fill='%23fffbd0' stroke='%23aeb4bf' stroke-width='1.6' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
+}
+</style>
+
+<style id="responsive-taglines-all-sections">
+/* Tagline section mengikuti karakter tagline cover: tegas/bold, dengan ukuran HP sedikit lebih besar. */
+#tentang .head > p,
+#kompetensi .head > p,
+#alur .head > p,
+#troubleshooting .head > p,
+#proyek .head > p,
+#data .head > p,
+#kolaborasi .head > p,
+#pengalaman .head > p,
+#kontak .head > p,
+section .container > .head > p {
+  font-weight: 700 !important;
+}
+@media (max-width: 700px) {
+  #tentang .head > p,
+  #kompetensi .head > p,
+  #alur .head > p,
+  #troubleshooting .head > p,
+  #proyek .head > p,
+  #data .head > p,
+  #kolaborasi .head > p,
+  #pengalaman .head > p,
+  #kontak .head > p,
+  section .container > .head > p {
+    font-size: clamp(.55rem, 2.5vw, .68rem) !important;
+    line-height: 1.55 !important;
+    letter-spacing: -.02em !important;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+</style>
+
+<style id="unify-mobile-tagline-size-final">
+/* Samakan ukuran tagline cover dan seluruh tagline section pada semua lebar HP. */
+@media (max-width: 700px) {
+  .hero p > strong,
+  #tentang .head > p,
+  #kompetensi .head > p,
+  #alur .head > p,
+  #troubleshooting .head > p,
+  #proyek .head > p,
+  #data .head > p,
+  #kolaborasi .head > p,
+  #pengalaman .head > p,
+  #kontak .head > p,
+  section .container > .head > p {
+    font-size: clamp(.55rem, 2.5vw, .68rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.55 !important;
+    letter-spacing: -.02em !important;
+  }
+}
+</style>
+
+</head>
 <body>
 <header class="topbar"><nav class="container" aria-label="Navigasi utama"><a class="brand" id="headerBrand" href="#home" aria-label="Kembali ke bagian awal">Muhammad Fatoni</a><div class="navlinks"><a href="#tentang">Tentang</a><a href="#kompetensi">Kompetensi</a><a href="#alur">Alur</a><a href="#proyek">Proyek</a><a href="#data">Data</a><a href="#kolaborasi">Kolaborasi</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a><button id="themeToggle" type="button">☾ Dark</button></div></nav></header>
 
 <main>
 <section class="hero" id="home" style="border-top:0"><div class="container"><div class="eyebrow">Portofolio Profesional</div><h1>Muhammad Fatoni</h1><p><strong>Operasi CNC <span class="hero-separator">·</span> Problem Solving <span class="hero-separator">·</span> Optimasi Proses <span class="hero-separator">·</span> Data Operasional</strong><span class="hero-description">Menggabungkan pengalaman operasional mesin, pemecahan masalah, optimasi proses, dan pengolahan data untuk mendukung kegiatan produksi.</span></p><div class="meta"><span>▣ Operasi &amp; perawatan CNC</span><span>▦ Optimasi file DXF</span><span>▤ Excel &amp; dashboard operasional</span></div></div></section>
-<section id="tentang"><div class="container"><div class="head"><div><div class="eyebrow">01 / Profil</div><h2>Tentang Saya</h2></div><p>Pengalaman produksi, pemecahan masalah, dan pengolahan data operasional.</p></div><div class="card"><p>Saya lulusan SMK (TKR) dengan pengalaman lebih dari 3 tahun di lingkungan manufaktur kemasan karton. Dalam peran sebagai Staf R&D Divisi Pisau, saya mengoperasikan dan merawat 2 mesin CNC, serta mengembangkan sistem record kerja berbasis Excel</p><p>Saya juga terbiasa menangani gangguan awal dan berkoordinasi lintas divisi untuk mendukung kelancaran operasional.</p><div class="tags"><span class="tag">Operasi CNC</span><span class="tag">Troubleshooting</span><span class="tag">Optimasi Proses</span><span class="tag">Data Operasional</span></div></div></div></section>
+<section id="tentang"><div class="container"><div class="head"><div><div class="eyebrow">01 / Profil</div><h2>Tentang Saya</h2></div><p>Pengalaman Manufaktur dan Pengembangan Sistem Kerja</p></div><div class="card"><p>Saya lulusan SMK (TKR) dengan pengalaman lebih dari 3 tahun di lingkungan manufaktur kemasan karton.</p><p>Dalam peran sebagai Staf R&D Divisi Pisau, saya mengoperasikan dan merawat 2 mesin CNC, serta mengembangkan sistem record kerja berbasis Excel</p><p>Saya juga terbiasa menangani gangguan awal dan berkoordinasi lintas divisi untuk mendukung kelancaran operasional.</p><div class="tags"><span class="tag">Operasi CNC</span><span class="tag">Troubleshooting</span><span class="tag">Optimasi Proses</span><span class="tag">Data Operasional</span></div></div></div></section>
 <section id="kompetensi"><div class="container"><div class="head"><div><div class="eyebrow">02 / Kompetensi</div><h2>Fokus Keahlian</h2></div><p>Kompetensi yang digunakan untuk mendukung proses produksi dan pemantauan operasional.</p></div><div class="grid">
 <article class="card"><img class="skill-icon" src="assets/Picture1_3.png" alt=""><div class="num">01 / PRODUKSI</div><h3>Operasi &amp; Perawatan CNC</h3><p>Pengoperasian Dieboard Laser Cutting dan Autoblade Bending, pemeriksaan pra-operasional, perawatan, serta pemantauan hasil proses.</p></article>
 <article class="card"><img class="skill-icon" src="assets/Picture2_2.png" alt=""><div class="num">02 / PROBLEM SOLVING</div><h3>Troubleshooting &amp; Eskalasi</h3><p>Mengamati gangguan, melakukan pemeriksaan awal, menguji hasil, dan melibatkan teknisi terkait jika dibutuhkan.</p></article>
@@ -672,7 +1487,36 @@ section:nth-of-type(4n+1):before{left:3%;bottom:4px;width:170px;height:170px;bac
 <figure class="machine-figure"><img src="assets/Picture6_1.png" alt="Ilustrasi bending steel rule"><figcaption><strong>Autoblade Bending</strong>Membentuk dan memproses steel rule sesuai gambar kerja.</figcaption></figure>
 </div>
 <div class="flow" aria-label="Siklus kerja"><span>DXF</span><b>→</b><span>MATERIAL</span><b>→</b><span>SETUP</span><b>→</b><span>PROSES</span><b>→</b><span>QC</span></div><div class="steps"><article class="step"><strong>01 / INPUT</strong><h3>File & pekerjaan</h3><p>Menyiapkan file DXF dan daftar pekerjaan/outstanding.</p></article><article class="step"><strong>02 / SETUP</strong><h3>Material & mesin</h3><p>Menyiapkan material, layout, dan parameter proses.</p></article><article class="step"><strong>03 / PROSES</strong><h3>Cutting & bending</h3><p>Menjalankan proses dan memantau kondisi serta hasilnya.</p></article><article class="step"><strong>04 / QC</strong><h3>Pemeriksaan hasil</h3><p>Memeriksa presisi, konsistensi, dan melakukan pendataan.</p></article></div><div class="note" style="margin-top:18px"><strong>Kontrol kerja:</strong> pemeriksaan pra-operasional · kebersihan mesin dan area kerja · pemantauan hasil · perawatan sesuai kebutuhan.</div></div></section>
-<section id="troubleshooting"><div class="container"><div class="head"><div><div class="eyebrow">04 / Troubleshooting</div><h2>Mengurangi Downtime Mesin</h2></div><p>Penanganan gangguan dilakukan bertahap, disertai pengujian dan eskalasi saat masalah belum terselesaikan.</p></div><div class="steps trouble-cards"><article class="step"><img class="trouble-icon" src="assets/Picture2_2.png" alt=""><strong>01 / AMATI</strong><h3>Amati & identifikasi</h3><p>Mengenali gejala dan memastikan kondisi gangguan.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture8_1.png" alt=""><strong>02 / IDENTIFIKASI</strong><h3>Analisis & tindakan</h3><p>Melakukan pemeriksaan dan troubleshooting awal sesuai kemampuan serta kewenangan.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture3_1.png" alt=""><strong>03 / ANALISIS</strong><h3>Uji & evaluasi</h3><p>Memeriksa apakah proses kembali berjalan normal atau gangguan berulang.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture1_3.png" alt=""><strong>04 / PERBAIKAN</strong><h3>Eskalasi</h3><p>Berkoordinasi dengan teknisi dan pihak terkait jika perbaikan awal belum berhasil.</p></article></div><div class="trouble-diagram" role="img" aria-label="Diagram troubleshooting responsif: amati, identifikasi, analisis, perbaikan, uji dan evaluasi. Jika belum selesai, eskalasi dan ulangi pemeriksaan; jika selesai, proses kembali normal."><div class="diagram-main"><span>01 AMATI</span><b>→</b><span>02 IDENTIFIKASI</span><b>→</b><span>03 ANALISIS</span><b>→</b><span>04 PERBAIKAN</span></div><div class="diagram-bottom"><span class="escalate">↶ ESKALASI</span><span class="decision">06 EVALUASI</span><span class="done">✓ DONE</span><span class="test">05 UJI</span></div><div class="diagram-caption"><span>Belum selesai: eskalasi dan ulangi pemeriksaan</span><span>Selesai: proses kembali normal</span></div></div><article class="card" style="margin-top:16px"><div class="num">STUDI KASUS ESKALASI</div><h3>Output laser tidak konsisten menembus material dan berlangsung lama</h3><p><strong>Upaya mandiri:</strong> pemeriksaan dan troubleshooting awal belum menyelesaikan gangguan.</p><p><strong>Eskalasi:</strong> koordinasi dengan teknisi dan rekomendasi developer untuk penggantian tabung CO₂.</p><p><strong>Hasil:</strong> proses laser dan output kembali normal.</p></article></div></section>
+<section id="troubleshooting"><div class="container"><div class="head"><div><div class="eyebrow">04 / Troubleshooting</div><h2>Mengurangi Downtime Mesin</h2></div><p>Penanganan gangguan dilakukan bertahap, disertai pengujian dan eskalasi saat masalah belum terselesaikan.</p></div>
+<div class="trouble-diagram" aria-label="Alur troubleshooting: 01 Amati, 02 Identifikasi, 03 Analisis, 04 Perbaikan, 05 Uji, 06 Evaluasi. Evaluasi menentukan apakah perlu eskalasi dan kembali ke Amati atau proses selesai.">
+<div class="trouble-flow">
+  <div class="flow-row flow-row-top">
+    <span class="flow-step step-01">01 AMATI</span><b class="flow-arrow arrow-01">→</b>
+    <span class="flow-step step-02">02 IDENTIFIKASI</span><b class="flow-arrow arrow-02">→</b>
+    <span class="flow-step step-03">03 ANALISIS</span>
+    <b class="flow-down">↓</b>
+  </div>
+  <div class="flow-row flow-row-bottom">
+    <span class="flow-step flow-decision step-06">06 EVALUASI</span><b class="flow-arrow arrow-06">←</b>
+    <span class="flow-step step-05">05 UJI</span><b class="flow-arrow arrow-05">←</b>
+    <span class="flow-step step-04">04 PERBAIKAN</span>
+  </div>
+</div>
+<div class="branch-label">HASIL EVALUASI</div>
+<div class="branch-arrows" aria-hidden="true"><span>↙</span><span>↘</span></div>
+<div class="diagram-branches">
+  <div class="branch branch-success">
+    <span class="branch-condition">JIKA SELESAI</span>
+    <span class="done">✓ DONE</span>
+    <span class="branch-explain">Proses kembali normal.</span>
+  </div>
+  <div class="branch branch-fail">
+    <span class="branch-condition">JIKA BELUM SELESAI</span>
+    <span class="escalate">↶ ESKALASI</span>
+    <span class="branch-explain">Tindak lanjuti bersama teknisi, lalu ulangi pemeriksaan dari tahap Amati.</span>
+  </div>
+</div>
+</div><div class="steps trouble-cards"><article class="step"><img class="trouble-icon" src="assets/Picture2_2.png" alt=""><strong>01 / AMATI</strong><h3>Amati & identifikasi</h3><p>Mengenali gejala dan memastikan kondisi gangguan.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture8_1.png" alt=""><strong>02 / IDENTIFIKASI</strong><h3>Analisis & tindakan</h3><p>Melakukan pemeriksaan dan troubleshooting awal sesuai kemampuan serta kewenangan.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture3_1.png" alt=""><strong>03 / ANALISIS</strong><h3>Uji & evaluasi</h3><p>Memeriksa apakah proses kembali berjalan normal atau gangguan berulang.</p></article><article class="step"><img class="trouble-icon" src="assets/Picture1_3.png" alt=""><strong>04 / PERBAIKAN</strong><h3>Eskalasi</h3><p>Berkoordinasi dengan teknisi dan pihak terkait jika perbaikan awal belum berhasil.</p></article></div><article class="card" style="margin-top:16px"><div class="num">STUDI KASUS ESKALASI</div><h3>Output laser tidak konsisten menembus material dan berlangsung lama</h3><p><strong>Upaya mandiri:</strong> pemeriksaan dan troubleshooting awal belum menyelesaikan gangguan.</p><p><strong>Eskalasi:</strong> koordinasi dengan teknisi dan rekomendasi developer untuk penggantian tabung CO₂.</p><p><strong>Hasil:</strong> proses laser dan output kembali normal.</p></article></div></section>
 <section id="optimasi"><div class="container"><div class="head"><div><div class="eyebrow">05 / Optimasi</div><h2>Optimasi Proses & File DXF</h2></div><p>Pengamatan parameter, penyesuaian gambar kerja, dan validasi hasil untuk mendukung kualitas, konsistensi, serta efisiensi.</p></div><div class="grid"><article class="card"><div class="num">PARAMETER PROSES</div><h3>Faktor yang diamati</h3><ul><li>Alignment jalur optik</li><li>Cermin reflektor dan lensa fokus</li><li>Ketinggian nozzle</li><li>Speed dan power/layer</li><li>Lebar celah potong</li><li>Pendingin, udara, dan exhaust</li></ul></article><article class="card"><div class="num">OPTIMASI DXF</div><h3>Layout & identitas pekerjaan</h3><ul><li>Penyesuaian layout untuk mengurangi sisa material.</li><li>Mempertimbangkan holding point dan ruang gerak nozzle.</li><li>Pengendalian scrap/residu melalui pengaturan gambar kerja.</li><li>Pelabelan identitas dieboard untuk membantu penelusuran riwayat pekerjaan.</li></ul></article></div><div class="note" style="margin-top:18px"><strong>Validasi:</strong> celah potong presisi, lensa fokus bersih dan kering, serta asap dan residu terkendali. Rincian parameter internal tidak ditampilkan.</div></div></section>
 <section id="proyek"><div class="container"><div class="head"><div><div class="eyebrow">06 / Sistem Data Operasional</div><h2>Contoh Sistem Kerja</h2></div><p>Ringkasan jenis pekerjaan dan pendekatan yang digunakan. Data untuk demonstrasi publik harus berupa data dummy.</p></div><div class="grid">
 <article class="card"><div class="num">PROJECT 01</div><h3>Record Performa Harian</h3><p>Pencatatan rencana kerja dan pembaruan progres outstanding untuk membantu monitoring operasional.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Data dummy</span><span class="tag">Monitoring</span></div></article>
@@ -803,3 +1647,42 @@ syncRailTop();
 window.addEventListener('resize', syncRailTop, {passive:true});
 
 </script></body></html>
+
+/* Revisi koordinasi: alur rapi, tidak menyisakan panah yatim. */
+#kolaborasi .flow-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(6px, 1.2vw, 16px);
+  padding: clamp(16px, 2.5vw, 28px);
+  min-width: 0;
+}
+#kolaborasi .flow-strip .flow-chip {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  padding: clamp(10px, 1.3vw, 16px) clamp(8px, 1.4vw, 20px);
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  font-size: clamp(.72rem, 1.15vw, 1rem);
+  line-height: 1.2;
+}
+#kolaborasi .flow-strip .flow-arrow { flex: 0 0 auto; }
+@media (max-width: 760px) {
+  #kolaborasi .flow-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 14px;
+  }
+  #kolaborasi .flow-strip .flow-chip {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px 6px;
+    white-space: nowrap;
+    font-size: clamp(.68rem, 2.7vw, .85rem);
+  }
+  #kolaborasi .flow-strip .flow-arrow { display: none; }
+}
