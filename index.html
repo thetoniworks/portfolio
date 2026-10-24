@@ -836,21 +836,6 @@ section:nth-of-type(4n+1):before{left:3%;bottom:4px;width:170px;height:170px;bac
   font-size: clamp(1rem, 1.5vw, 1.35rem);
   line-height: 1;
 }
-@media (max-width: 760px) {
-  #kolaborasi .flow-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px;
-    padding: 14px;
-  }
-  #kolaborasi .flow-strip .flow-chip {
-    min-height: 52px;
-    padding: 10px 6px;
-    font-size: clamp(.72rem, 2.8vw, .9rem);
-    white-space: nowrap;
-  }
-  #kolaborasi .flow-strip .flow-arrow { display: none !important; }
-}
-
 
 /* Revisi aksesibilitas dan alur troubleshooting: percabangan evaluasi jelas, kontras dark mode nyaman. */
 .trouble-diagram { padding:clamp(14px,2.2vw,24px); }
@@ -1390,6 +1375,75 @@ section:nth-of-type(4n+1):before{left:3%;bottom:4px;width:170px;height:170px;bac
     aspect-ratio: 5.3 / 1 !important;
   }
 }
+
+
+/* Perkakas operasional: gunakan komponen kartu yang sama agar konsisten dan responsif. */
+.hand-tools-block .tools-heading { margin-bottom: 18px; }
+.hand-tools-block .tool-card { min-height: 112px; }
+@media (max-width: 700px) {
+  .hand-tools-block .tool-card { min-height: 0; }
+}
+
+/* Revisi: alur CNC sejajar di desktop dan vertikal pada layar HP, mengikuti alur Kolaborasi. */
+#alur .flow[aria-label="Siklus kerja"] {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+  align-items: center;
+  justify-items: stretch;
+  gap: clamp(6px,1vw,14px);
+  width: 100%;
+  max-width: 100%;
+  margin: 26px 0;
+  padding: clamp(16px,2.2vw,28px);
+  overflow: visible;
+  box-sizing: border-box;
+}
+#alur .flow[aria-label="Siklus kerja"] span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(50px,5vw,64px);
+  padding: 12px clamp(6px,.8vw,14px);
+  border-radius: 14px;
+  text-align: center;
+  white-space: nowrap;
+  font-size: clamp(.72rem,1.1vw,1rem);
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+#alur .flow[aria-label="Siklus kerja"] b {
+  display: block;
+  justify-self: center;
+  color: var(--accent);
+  font-size: clamp(1rem,1.5vw,1.35rem);
+  line-height: 1;
+}
+@media (max-width: 760px) {
+  #alur .flow[aria-label="Siklus kerja"] {
+    grid-template-columns: minmax(0,1fr);
+    gap: 8px;
+    justify-items: stretch;
+    padding: 16px 12px;
+    margin: 20px 0;
+  }
+  #alur .flow[aria-label="Siklus kerja"] span {
+    min-height: 52px;
+    font-size: .9rem;
+    white-space: normal;
+  }
+  #alur .flow[aria-label="Siklus kerja"] b {
+    display: block;
+    transform: none;
+    text-align: center;
+    font-size: 1.35rem;
+  }
+  #alur .flow[aria-label="Siklus kerja"] b::before { content: "↓"; }
+  #alur .flow[aria-label="Siklus kerja"] b { font-size: 0; }
+  #alur .flow[aria-label="Siklus kerja"] b::before { font-size: 1.35rem; }
+}
+
 </style>
 <style id="flow-shape-outline-revision">
 /* Outline abu-abu tipis dan konsisten untuk tahapan 01–06 pada diagram troubleshooting. */
@@ -1438,7 +1492,7 @@ section .container > .head > p {
   #pengalaman .head > p,
   #kontak .head > p,
   section .container > .head > p {
-    font-size: clamp(.55rem, 2.5vw, .68rem) !important;
+    font-size: clamp(.58rem, 2.7vw, .72rem) !important;
     line-height: 1.55 !important;
     letter-spacing: -.02em !important;
     max-width: 100%;
@@ -1467,8 +1521,215 @@ section .container > .head > p {
     letter-spacing: -.02em !important;
   }
 }
+
+
+@media (max-width: 760px) {
+  #kolaborasi .flow-strip {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 12px !important;
+  }
+
+  #kolaborasi .flow-strip .flow-chip {
+    width: 100% !important;
+    min-height: 44px !important;
+    flex: 0 0 auto !important;
+    padding: 10px 8px !important;
+    font-size: clamp(.78rem, 3.2vw, .9rem) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+
+  #kolaborasi .flow-strip .flow-arrow {
+    display: block !important;
+    text-align: center !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    padding: 7px 0 !important;
+    transform: none !important;
+  }
+
+  #kolaborasi .flow-strip .flow-arrow::before {
+    content: "↓" !important;
+    display: inline-block !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    color: var(--accent) !important;
+  }
+
+  #kolaborasi .flow-strip .flow-arrow::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Alur Data & Dashboard: satu shape per baris pada layar HP. */
+  #data .data-grid .flow {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    padding: 10px 0 !important;
+  }
+
+  #data .data-grid .flow span {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 46px !important;
+    box-sizing: border-box !important;
+    padding: 11px 10px !important;
+    font-size: clamp(.78rem, 3.2vw, .92rem) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    border-radius: 14px !important;
+  }
+
+  #data .data-grid .flow b {
+    display: block !important;
+    flex: 0 0 auto !important;
+    align-self: center !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    padding: 7px 0 !important;
+  }
+
+  #data .data-grid .flow b::before {
+    content: "↓" !important;
+    display: inline-block !important;
+    color: var(--accent) !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+  }
+}
+
 </style>
 
+<style id="tools-software-section">
+/* Toolbox: dua kartu berdampingan pada desktop dan bertumpuk pada layar ponsel. */
+.toolbox-section{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.toolbox-heading{margin-bottom:18px;max-width:720px}
+.toolbox-heading h3{font-size:clamp(1.35rem,2.5vw,1.8rem);letter-spacing:-.025em;margin:8px 0 6px}
+.toolbox-heading p{margin:0;color:var(--muted);font-size:1rem;line-height:1.6}
+.toolbox-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.toolbox-card{min-width:0;padding:26px 28px;background:var(--surface);border:1px solid var(--line);border-radius:22px}
+.toolbox-card h4{font-size:1.12rem;line-height:1.35;margin:0 0 18px;color:var(--text);font-weight:750}
+.toolbox-list{margin:0;padding:0;list-style:none}
+.toolbox-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--text);font-size:.98rem;line-height:1.4}
+.toolbox-item:last-child{border-bottom:0}
+.toolbox-item>span:first-child{min-width:0}
+.software-name{position:relative;padding-left:22px}
+.software-name::before{content:"";position:absolute;left:3px;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.tool-level{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:.72rem;line-height:1.4;font-weight:800;white-space:nowrap;flex-shrink:0}
+.tool-level.intermediate{background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--text)}
+.tool-level.basic{background:var(--surface2);color:var(--muted)}
+.hand-tool-list li{padding:12px 0 12px 22px;border-bottom:1px solid var(--line);position:relative;color:var(--text);font-size:.98rem;line-height:1.4}
+.hand-tool-list li::before{content:"";position:absolute;left:3px;top:1.45em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hand-tool-list li:last-child{border-bottom:0}
+@media(max-width:700px){.toolbox-section{margin-top:24px;padding-top:22px}.toolbox-cards{grid-template-columns:minmax(0,1fr);gap:16px}.toolbox-card{padding:22px 20px;border-radius:18px}.toolbox-heading{margin-bottom:16px}.toolbox-item,.hand-tool-list li{padding-top:10px;padding-bottom:10px}}
+
+/* Efek hover konsisten: semua elemen berbentuk kartu terangkat sedikit saat diarahkan kursor. */
+.card,
+.step,
+.contact,
+.visual-tile,
+.machine-figure,
+.excel-shot,
+.tf-node,
+.trouble-diagram,
+.flow-strip,
+.toolbox-card,
+.toolbox-item,
+.hand-tool-list,
+.branch {
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.card:hover,
+.step:hover,
+.contact:hover,
+.visual-tile:hover,
+.machine-figure:hover,
+.excel-shot:hover,
+.tf-node:hover,
+.trouble-diagram:hover,
+.flow-strip:hover,
+.toolbox-card:hover,
+.toolbox-item:hover,
+.hand-tool-list:hover,
+.branch:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow: 0 14px 30px #00000012;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .step, .contact, .visual-tile, .machine-figure, .excel-shot,
+  .tf-node, .trouble-diagram, .flow-strip, .toolbox-card, .toolbox-item,
+  .hand-tool-list, .branch {
+    transition: none !important;
+  }
+  .card:hover, .step:hover, .contact:hover, .visual-tile:hover,
+  .machine-figure:hover, .excel-shot:hover, .tf-node:hover,
+  .trouble-diagram:hover, .flow-strip:hover, .toolbox-card:hover,
+  .toolbox-item:hover, .hand-tool-list:hover, .branch:hover {
+    transform: none;
+  }
+}
+</style>
+<style id="toolbox-tagline-unified-final">
+/* Samakan tagline Toolbox dengan tagline section lainnya, termasuk aksen dan tipografi mobile. */
+.toolbox-heading > p {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  padding-bottom: 22px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+.toolbox-heading > p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: clamp(120px, 17vw, 175px);
+  height: 4px;
+  border-radius: 99px;
+  background: var(--accent);
+  box-shadow: 0 2px 5px color-mix(in srgb, var(--accent) 25%, transparent);
+  transform: translateX(-95px);
+  opacity: 0;
+  animation: hero-accent-float 1.25s cubic-bezier(.22,.75,.25,1) .15s both;
+}
+@media (max-width: 700px) {
+  .toolbox-heading > p {
+    font-size: clamp(.58rem, 2.7vw, .72rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.55 !important;
+    letter-spacing: -.02em !important;
+    max-width: 100%;
+    padding-bottom: 18px;
+    overflow-wrap: anywhere;
+  }
+  .toolbox-heading > p::after { width: 112px; height: 3px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .toolbox-heading > p::after { animation: none; transform: none; opacity: 1; }
+}
+</style>
 </head>
 <body>
 <header class="topbar"><nav class="container" aria-label="Navigasi utama"><a class="brand" id="headerBrand" href="#home" aria-label="Kembali ke bagian awal">Muhammad Fatoni</a><div class="navlinks"><a href="#tentang">Tentang</a><a href="#kompetensi">Kompetensi</a><a href="#alur">Alur</a><a href="#proyek">Proyek</a><a href="#data">Data</a><a href="#kolaborasi">Kolaborasi</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a><button id="themeToggle" type="button">☾ Dark</button></div></nav></header>
@@ -1481,6 +1742,36 @@ section .container > .head > p {
 <article class="card"><img class="skill-icon" src="assets/Picture2_2.png" alt=""><div class="num">02 / PROBLEM SOLVING</div><h3>Troubleshooting &amp; Eskalasi</h3><p>Mengamati gangguan, melakukan pemeriksaan awal, menguji hasil, dan melibatkan teknisi terkait jika dibutuhkan.</p></article>
 <article class="card"><img class="skill-icon" src="assets/Picture3_1.png" alt=""><div class="num">03 / OPTIMASI</div><h3>Optimasi Proses &amp; DXF</h3><p>Penyesuaian file DXF, layout pemanfaatan material, serta pengoptimalan parameter proses untuk mendukung kualitas dan kelancaran produksi.</p></article>
 <article class="card"><img class="skill-icon" src="assets/Picture4.png" alt=""><div class="num">04 / DATA</div><h3>Excel &amp; Monitoring</h3><p>Pengolahan data operasional menggunakan tabel, formula, PivotTable, PivotChart, slicer, timeline, dan dashboard.</p></article>
+</div>
+<div class="toolbox-section" aria-labelledby="toolbox-title">
+  <div class="toolbox-heading">
+    <div class="num">TOOLBOX</div>
+    <h3 id="toolbox-title">Tools & Software</h3>
+    <p>Peralatan perkakas dan software yang digunakan.</p>
+  </div>
+  <div class="toolbox-cards">
+    <article class="toolbox-card" aria-labelledby="hand-tools-title">
+      <h4 id="hand-tools-title">Daftar Perkakas Tangan</h4>
+      <ul class="toolbox-list hand-tool-list">
+        <li>Obeng</li>
+        <li>Kunci L</li>
+        <li>Jangka Sorong</li>
+        <li>Meteran</li>
+        <li>Tanggem</li>
+        <li>Palu</li>
+      </ul>
+    </article>
+    <article class="toolbox-card" aria-labelledby="software-title">
+      <h4 id="software-title">Daftar Software</h4>
+      <div class="toolbox-list software-list">
+        <div class="toolbox-item"><span class="software-name">Microsoft Excel</span><span class="tool-level intermediate">Menengah</span></div>
+        <div class="toolbox-item"><span class="software-name">Microsoft Word</span><span class="tool-level basic">Dasar</span></div>
+        <div class="toolbox-item"><span class="software-name">Microsoft PowerPoint</span><span class="tool-level basic">Dasar</span></div>
+        <div class="toolbox-item"><span class="software-name">AutoCAD 2D</span><span class="tool-level basic">Dasar</span></div>
+        <div class="toolbox-item"><span class="software-name">CorelDRAW</span><span class="tool-level basic">Dasar</span></div>
+      </div>
+    </article>
+  </div>
 </div></div></section>
 <section id="alur"><div class="container"><div class="head"><div><div class="eyebrow">03 / CNC & Workflow</div><h2>Dua Mesin, Satu Siklus Kerja</h2></div><p>Gambaran umum alur pekerjaan dari gambar kerja hingga pemeriksaan hasil.</p></div><div class="section-pattern" aria-label="Ilustrasi mesin">
 <figure class="machine-figure"><img src="assets/Picture5_1.png" alt="Ilustrasi laser cutting"><figcaption><strong>Laser Cutting</strong>Memotong material multipleks sesuai pola DXF.</figcaption></figure>
@@ -1646,43 +1937,48 @@ function syncRailTop() {
 syncRailTop();
 window.addEventListener('resize', syncRailTop, {passive:true});
 
-</script></body></html>
+</script>
+<style id="revision-hover-list-flow">
+/* Efek timbul per item perkakas, setara dengan daftar software. */
+.hand-tool-list li {
+  border-radius: 8px;
+  padding-left: 22px;
+  padding-right: 10px;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.hand-tool-list li:hover {
+  transform: translateY(-3px);
+  background: var(--surface2);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow: 0 10px 22px #00000010;
+}
+/* Tiap kotak/tahap alur terangkat sendiri; panah tidak diberi efek hover. */
+.flow > span,
+.flow-row .flow-step,
+.flow-strip .flow-chip {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
+}
+.flow > span:hover,
+.flow-row .flow-step:hover,
+.flow-strip .flow-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px #00000012;
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+}
+/* Tombol/tautan aksi ikut mendapat efek ringan. */
+.actions .btn {
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.actions .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px #00000014;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hand-tool-list li, .flow > span, .flow-row .flow-step,
+  .flow-strip .flow-chip, .actions .btn { transition: none !important; }
+  .hand-tool-list li:hover, .flow > span:hover, .flow-row .flow-step:hover,
+  .flow-strip .flow-chip:hover, .actions .btn:hover { transform: none; box-shadow: none; }
+}
+</style>
 
-/* Revisi koordinasi: alur rapi, tidak menyisakan panah yatim. */
-#kolaborasi .flow-strip {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(6px, 1.2vw, 16px);
-  padding: clamp(16px, 2.5vw, 28px);
-  min-width: 0;
-}
-#kolaborasi .flow-strip .flow-chip {
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: none;
-  padding: clamp(10px, 1.3vw, 16px) clamp(8px, 1.4vw, 20px);
-  white-space: nowrap;
-  overflow-wrap: normal;
-  word-break: normal;
-  font-size: clamp(.72rem, 1.15vw, 1rem);
-  line-height: 1.2;
-}
-#kolaborasi .flow-strip .flow-arrow { flex: 0 0 auto; }
-@media (max-width: 760px) {
-  #kolaborasi .flow-strip {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding: 14px;
-  }
-  #kolaborasi .flow-strip .flow-chip {
-    width: 100%;
-    min-height: 50px;
-    padding: 10px 6px;
-    white-space: nowrap;
-    font-size: clamp(.68rem, 2.7vw, .85rem);
-  }
-  #kolaborasi .flow-strip .flow-arrow { display: none; }
-}
+</body></html>
